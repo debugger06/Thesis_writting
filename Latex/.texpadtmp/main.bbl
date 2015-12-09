@@ -64,86 +64,70 @@
   \field{year}{1998}
 \endentry
 
-\entry{Reference1}{article}{}
-  \name{author}{3}{}{%
+\entry{Reference2}{article}{}
+  \name{author}{1}{}{%
     {{}%
-     {Hawthorn}{H.}%
-     {C.~J.}{C.~J.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Weber}{W.}%
-     {K.~P.}{K.~P.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Scholten}{S.}%
-     {R.~E.}{R.~E.}%
+     {Paffenholz}{P.}%
+     {Andreas}{A.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{HCJWKPSRE1}
-  \strng{fullhash}{HCJWKPSRE1}
-  \field{labelyear}{2001}
-  \field{sortinit}{H}
+  \keyw{Birkhoff Polytope}
+  \strng{namehash}{PA1}
+  \strng{fullhash}{PA1}
+  \field{labelyear}{2013}
+  \field{sortinit}{P}
   \field{abstract}{%
-  We have developed an enhanced Littrow configuration extended cavity diode
-  laser (ECDL) that can be tuned without changing the direction of the output
-  beam. The output of a conventional Littrow ECDL is reflected from a plane
-  mirror fixed parallel to the tuning diffraction grating. Using a free-space
-  Michelson wavemeter to measure the laser wavelength, we can tune the laser
-  over a range greater than 10 nm without any alteration of alignment.%
+  The Birkhoff polytope B(n) is the convex hull of all (n x n) permutation
+  matrices, i.e., matrices where precisely one entry in each row and column is
+  one, and zeros at all other places. This is a widely studied polytope with
+  various applications throughout mathematics. In this paper we study
+  combinatorial types L of faces of a Birkhoff polytope. The Birkhoff dimension
+  bd(L) of L is the smallest n such that B(n) has a face with combinatorial
+  type L. By a result of Billera and Sarangarajan, a combinatorial type L of a
+  d-dimensional face appears in some B(k) for k less or equal to 2d, so bd(L)
+  is at most d. We will characterize those types whose Birkhoff dimension is at
+  least 2d-3, and we prove that any type whose Birkhoff dimension is at least d
+  is either a product or a wedge over some lower dimensional face. Further, we
+  computationally classify all d-dimensional combinatorial types for d between
+  2 and 8..%
   }
-  \field{number}{12}
-  \field{pages}{4477\bibrangedash 4479}
-  \field{title}{Littrow Configuration Tunable External Cavity Diode Laser with
-  Fixed Direction Output Beam}
+  \field{pages}{1\bibrangedash 29}
+  \field{title}{FACES OF BIRKHOFF POLYTOPES}
   \verb{url}
-  \verb http://link.aip.org/link/?RSI/72/4477/1
+  \verb http://arxiv.org/abs/1304.3948
   \endverb
-  \field{volume}{72}
-  \field{journaltitle}{Review of Scientific Instruments}
-  \field{month}{12}
-  \field{year}{2001}
+  \field{journaltitle}{Cornel University Library}
+  \field{month}{04}
+  \field{year}{2013}
 \endentry
 
-\entry{Reference2}{article}{}
-  \name{author}{2}{}{%
+\entry{Reference1}{article}{}
+  \name{author}{1}{}{%
     {{}%
-     {Wieman}{W.}%
-     {Carl~E.}{C.~E.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Hollberg}{H.}%
-     {Leo}{L.}%
+     {Pak}{P.}%
+     {Igor}{I.}%
      {}{}%
      {}{}}%
   }
-  \keyw{Diode Laser}
-  \strng{namehash}{WCEHL1}
-  \strng{fullhash}{WCEHL1}
-  \field{labelyear}{1991}
-  \field{sortinit}{W}
+  \strng{namehash}{PI1}
+  \strng{fullhash}{PI1}
+  \field{labelyear}{1999}
+  \field{sortinit}{P}
   \field{abstract}{%
-  We present a review of the use of diode lasers in atomic physics with an
-  extensive list of references. We discuss the relevant characteristics of
-  diode lasers and explain how to purchase and use them. We also review the
-  various techniques that have been used to control and narrow the spectral
-  outputs of diode lasers. Finally we present a number of examples illustrating
-  the use of diode lasers in atomic physics experiments. Review of Scientific
-  Instruments is copyrighted by The American Institute of Physics.%
+  We ask several questions on the structure of the polytope of doubly
+  stochastic $n x n$ matrices $P_n$, known as a Birkhoff polytope. We discuss
+  the volume of $P_n$, the work of the simplex method, and the mixing of random
+  walks $P_n$.%
   }
-  \field{number}{1}
-  \field{pages}{1\bibrangedash 20}
-  \field{title}{Using Diode Lasers for Atomic Physics}
+  \field{pages}{83\bibrangedash 90}
+  \field{title}{Four Questions on Birkhoff Polytope}
   \verb{url}
-  \verb http://link.aip.org/link/?RSI/62/1/1
+  \verb http://www.math.ucla.edu/~pak/papers/bir.pdf
   \endverb
-  \field{volume}{62}
-  \field{journaltitle}{Review of Scientific Instruments}
-  \field{month}{01}
-  \field{year}{1991}
+  \field{journaltitle}{Annals of combinatorics}
+  \field{month}{02}
+  \field{year}{1999}
 \endentry
 
 \lossort

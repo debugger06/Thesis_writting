@@ -28,10 +28,12 @@
 \contentsline {subsection}{\numberline {1.7.6}Typesetting mathematics}{9}{subsection.34}
 \contentsline {section}{\numberline {1.8}Sectioning and Subsectioning}{9}{section.36}
 \contentsline {section}{\numberline {1.9}In Closing}{10}{section.37}
-\contentsline {chapter}{\numberline {2}Chapter Title Here}{11}{chapter.38}
-\contentsline {section}{\numberline {2.1}Main Section 1}{11}{section.39}
-\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{11}{subsection.40}
-\contentsline {subsection}{\numberline {2.1.2}Subsection 2}{11}{subsection.41}
-\contentsline {section}{\numberline {2.2}Main Section 2}{11}{section.42}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{13}{appendix.43}
-\contentsline {chapter}{Bibliography}{15}{appendix*.44}
+\contentsline {chapter}{\numberline {2}The Birkhoff Polytope}{11}{chapter.38}
+\contentsline {section}{\numberline {2.1}What is Polytopes}{11}{section.39}
+\contentsline {subsection}{\numberline {2.1.1}Subsection 1}{12}{subsection.43}
+\contentsline {section}{\numberline {2.2}What is Birkhoff Polytope}{12}{section.44}
+\contentsline {subsection}{\numberline {2.2.1}Subsection 1}{12}{subsection.46}
+\contentsline {subsection}{\numberline {2.2.2}Subsection 2}{13}{subsection.47}
+\contentsline {section}{\numberline {2.3}Main Section 2}{13}{section.48}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{15}{appendix.49}
+\contentsline {chapter}{Bibliography}{17}{appendix*.50}
