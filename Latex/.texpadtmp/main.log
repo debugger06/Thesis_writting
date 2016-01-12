@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.24)  1 DEC 2015 17:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.24)  12 JAN 2016 17:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1397,7 +1397,7 @@ Overfull \hbox (9.16711pt too wide) in paragraph at lines 225--225
 []\T1/pcr/m/n/10 \caption{The effects of treatments X and Y on the four groups studied.}[] 
  []
 
-[7] <Figures/Electron.pdf, id=375, 398.3386pt x 284.52756pt>
+[7] <Figures/Electron.pdf, id=380, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
  <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf used on input line 262.
@@ -1407,26 +1407,21 @@ Chapter 2.
 --------------------
  2. The Birkhoff Polytope
 --------------------
-[11
+<Figures/Eulerian.png, id=459, 339.2675pt x 189.70876pt>
+File: Figures/Eulerian.png Graphic file (type png)
+ <use Figures/Eulerian.png>
+Package pdftex.def Info: Figures/Eulerian.png used on input line 28.
+(pdftex.def)             Requested size: 339.26666pt x 189.70828pt.
+ [11
 
-]
-./Chapters/Chapter1.tex:49: Undefined control sequence.
-l.49 ...face of a polytope $P = \{ x \mid Ax \leqb
-                                                   \} \subseteq \mathbb{R}^d...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[12]) (./Appendices/AppendixA.tex [13] [14
-
-]
+] [12 <./Figures/Eulerian.png>]) [13] (./Appendices/AppendixA.tex [14]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [15] [16
+) [15
+
+] [16
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
@@ -1446,18 +1441,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25648 strings out of 493117
- 460156 string characters out of 6135433
+ 25657 strings out of 493117
+ 460322 string characters out of 6135433
  606727 words of memory out of 5000000
- 28694 multiletter control sequences out of 15000+600000
+ 28700 multiletter control sequences out of 15000+600000
  66296 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,12n,49p,10377b,1620s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.pdf (41 pages, 250815 bytes).
+Output written on /Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.pdf (41 pages, 279931 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
- 496 compressed objects within 5 object streams
- 95 named destinations out of 1000 (max. 500000)
- 294 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 579 PDF objects out of 1000 (max. 8388607)
+ 504 compressed objects within 6 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 307 words of extra memory for PDF output out of 10000 (max. 10000000)
 
