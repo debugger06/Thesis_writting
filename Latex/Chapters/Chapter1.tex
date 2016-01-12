@@ -12,12 +12,90 @@
 In this Chapter I am going to describe about Birkhoff polytope $B_n$ which is sometimes considered to be one of the most important polytopes in many sphere. Before that I will define some basic types.
 \section{Hypermatrix}
 
-A generalisation of matrix to an $n_1 \times n_1 \times ...$ array of numbers.
-
+A generalisation of matrix to an $n_1 \times n_1 \times ...$ array of numbers. \newline
 Example: 3-dimensional hypermatrix(cube). It is a $2 \times 2 \times 2$ matrix over $\mathbb{R}$.
 
 
-\section{What is Polytopes}
+\begin{figure}[h]
+\centering
+\includegraphics{Figures/hypercube.png}
+\decoRule
+\caption[hypercube]{3-dimensional hypermatrix(cube).}
+\label{fig:hypercube}
+\end{figure}
+
+\section{Doubly-Stochastic Matrix}
+
+Doubly Stochastic Matrix is a square matrix of non-negative real numbers, each of whose rows and columns sum to 1. If rows and columns of some matrices sum to n, it can also be considered as doubly stochastic matrix because we can just device all the entries by n, which results to true Doubly Stochastic.\\
+
+
+Examples:
+
+\[
+  \begin{bmatrix}
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1 \\
+  \end{bmatrix}
+  ,
+    \begin{bmatrix}
+     1/6 & 5/6 & 0 & 0 \\
+     0 & 0 & 1 & 0 \\
+     0 & 1/6 & 0 & 5/6 \\
+     5/6 & 0 & 0 & 1/6
+    \end{bmatrix}
+  ,
+    \begin{bmatrix}
+     \frac{1}{2} & \frac{1}{2} \\
+     \frac{1}{2} & \frac{1}{2}
+    \end{bmatrix}
+\]
+
+\section{Permutation Matrix}
+
+A matrix obtained by permuting the rows of an $n\times n$ identity matrix according to some permutation of the numbers 1 to n. So the number of $n\times n$ permutation matrics is $n!$.\\
+
+The permutation matrics of order 3 are:
+\[
+  \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+  \end{bmatrix}
+  ,
+    \begin{bmatrix}
+     1 & 0 & 0 \\
+     0 & 0 & 1 \\
+     0 & 1 & 0 \\
+    \end{bmatrix}
+  ,
+    \begin{bmatrix}
+     0 & 0 & 1 \\
+     1 & 0 & 0 \\
+     0 & 1 & 0 \\
+    \end{bmatrix}
+    ,
+    \begin{bmatrix}
+     0 & 1 & 0 \\
+     1 & 0 & 0 \\
+     0 & 0 & 1 \\
+    \end{bmatrix}
+    ,
+    \begin{bmatrix}
+     0 & 1 & 0 \\
+     0 & 0 & 1 \\
+     1 & 0 & 0 \\
+    \end{bmatrix}
+    ,
+    \begin{bmatrix}
+     0 & 0 & 1 \\
+     0 & 1 & 0 \\
+     1 & 0 & 0 \\
+    \end{bmatrix}
+\]
+
+
+\section{Polytopes}
 
 In elementary geometry, a polytope is a geometric object with flat sides, and may exist in any general number of dimensions n as an n-dimensional polytope or n-polytope. For example a two-dimensional polygon is a 2-polytope and a three-dimensional polyhedron is a 3-polytope
 
@@ -29,7 +107,7 @@ A proper face of $F$ of a polytope $P$ is the intersection of $P$ with and affin
 0-dimensional faces of $P$ are called $vertices$, 1-dimensional faces are edges. Proper faces of maximal dimensional are called facets. $P$ is the convex hull of its vertices, and the vertices of any face are subset of the vertices of $P$. Thus, a polytope has only a finite number of faces. Let $f_i$ be the number of $i$-dimensional faces of $P,0 \leq i \leq dim P-1$. The $f$-vector of a d-dimensional polytope P is the non-negative integral vector $f(P) = (f_0,...,f_(d-1)$.
 
 The face lettice or combinatorial type $\mathcal{L}(P)$ of a polytope P is the partially ordered set of all faces of P (including the empty face and P itself). This defines Eulerian lattice. Figure shows 2.1 this lattice.
-\begin{figure}\centering\includegraphics{Figures/Eulerian.png}\decoRule\caption[]{A triangle and its face lattice.}\label{Eulerian}\end{figure}
+
 
 It contains all combinatorial information of the polytope. Two polytopes P,$P'$ are combinatorially isomorphic or have the same combinatorial type if their face lattices are isomorphic as posets.
 
@@ -60,13 +138,26 @@ Again, we say more generally that P is wedge of a polytope  Q over some face F o
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
-\section{What is Birkhoff Polytope}
+\section{Birkhoff Polytope}
 
 Birkhoff polytope $B_n$ is sometimes considered to be one of the most important polytopes in many sphere. Birkhoff polytope is also called assignment polytope, the polytope of doubly stochastic matrices, or the perfect matching polytope of complete bipartite graph $K_(n,n)$ ,transportation polytope. It surprisingly appears in various branches of mathematics from geometry to enumerative combinatorics to optimisation theory to Statistics.
 
 The Birkhoff polytope $B_n$ is the convex hull of all $(n\times n)$ permutation metrices, i.e.matrices which consists precisely one 1 in every row and column, and zeros at all places. Equivalently, $B_n$ is the set of all non-negative $(n \times n)$-metrices, whose rows and columns all sum to 1, or the perfect matching polytope of the complete bipartite graph $K_(n,n)$. The Birkhoff polytope $B_n$ has dimension $(n-1)^2$ with $n!$ vertices and $n_2$ facets. The Birkhoff-von Neumann Theoram illustrated, $B_n$ can be understood as the intersection of the positive orthant with a family of of hyperplanes.
 
 Birkhoff polytopes are widely studied as a class of polytopes in the area of optimisation, statistics, enumerative combinatorics or representation theory. Despite, Combinatorial and Geometrical structure of Birkhoff polytope and its algorithmic treatment are still open to disover.
+
+A Birkhoff polytope $B_n$ is a polytope defined by the following equations and in-equalities:
+\begin{equation}a_{i,j} \geqslant 0, \sum_{i=1}^{n} a_{i,j} = 1, \sum_{j=1}^{n} a_{i,j}=1 \text{ for all } 1\leqslant i,j\leqslant n.\label{eqn:Birkhoff_definition}\end{equation}	
+
+$(a_{i,j}$ can be thought of as  $n\times n$ doubly stochastic matrices. It can be realise that $B_n$ has dimension $(n-1)^2$ as values of $a_{i,j},1\leqslant i,j\leqslant n$ determine the rest. Different way helps to realise that vertices of $P_n$ are permutation matrices.
+
+\section{Properties of $\B_n$}
+
+\subsection{Vetices}
+The Birkhoff polytope has $n!$ vertices, one for each permutation on $n$ items. 
+
+
+
 
  Let $S_n$ be the group of permutations on $n$ elements. To any element $\sigma \in S_n$ we can associate a 0/1-matrix $M( \sigma ) \in \mathbb{R}^{n \times n}$ that has a 1 at position (i,j) if and only if $\sigma(i)=j$. The n-th Birkhoff polytope is:
 \begin{equation}\mathbb{B} = conv(M( \sigma ) \mid \sigma \in S_n ) \subseteq \mathbb{R}^{n \times n}\label{eqn:Einstein}\end{equation}	
