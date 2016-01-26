@@ -17,51 +17,35 @@
 \endgroup
 
 \entry{Reference3}{article}{}
-  \name{author}{4}{}{%
+  \name{author}{1}{}{%
     {{}%
-     {Arnold}{A.}%
-     {A.~S.}{A.~S.}%
+     {Jesus A. De~Loera}{J.~A. D.~L.}%
+     {Ruriko~Yoshida}{R.~Y.}%
      {}{}%
-     {}{}}%
-    {{}%
-     {Wilson}{W.}%
-     {J.~S.}{J.~S.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Boshier}{B.}%
-     {M.~G.}{M.~G.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Smith}{S.}%
-     {J.}{J.}%
-     {}{}%
-     {}{}}%
+     {Fu~Liu}{F.~L.}}%
   }
-  \strng{namehash}{AAS+1}
-  \strng{fullhash}{AASWJSBMGSJ1}
-  \field{labelyear}{1998}
-  \field{sortinit}{A}
+  \keyw{Birkhoff, Volume, Polytope}
+  \strng{namehash}{JADLFLRY1}
+  \strng{fullhash}{JADLFLRY1}
+  \field{labelyear}{2007}
+  \field{sortinit}{J}
   \field{abstract}{%
-  Operating a laser diode in an extended cavity which provides
-  frequency-selective feedback is a very effective method of reducing the
-  laser's linewidth and improving its tunability. We have developed an
-  extremely simple laser of this type, built from inexpensive commercial
-  components with only a few minor modifications. A 780~nm laser built to this
-  design has an output power of 80~mW, a linewidth of 350~kHz, and it has been
-  continuously locked to a Doppler-free rubidium transition for several days.%
+  We present a multivariate generating function for all n x n nonnegative
+  integral matrices with all row and column sums equal to a positive integer t,
+  the so called semi-magic squares. As a consequence we obtain formulas for all
+  coefficients of the Ehrhart polynomial of the polytope B_n of n x n
+  doubly-stochastic matrices, also known as the Birkhoff polytope. In
+  particular we derive formulas for the volumes of B_n and any of its faces..%
   }
-  \field{number}{3}
-  \field{pages}{1236\bibrangedash 1239}
-  \field{title}{A Simple Extended-Cavity Diode Laser}
+  \field{pages}{1\bibrangedash 24}
+  \field{title}{A Generating Function for all Semi-Magic Squares and the Volume
+  of the Birkhoff Polytope}
   \verb{url}
-  \verb http://link.aip.org/link/?RSI/69/1236/1
+  \verb http://arxiv.org/abs/math/0701866
   \endverb
-  \field{volume}{69}
-  \field{journaltitle}{Review of Scientific Instruments}
-  \field{month}{03}
-  \field{year}{1998}
+  \field{journaltitle}{Cornel University Library}
+  \field{month}{01}
+  \field{year}{2007}
 \endentry
 
 \entry{Reference2}{article}{}
