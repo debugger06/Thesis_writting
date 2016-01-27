@@ -42,8 +42,10 @@
 \contentsline {subsection}{\numberline {2.6.3}Facets}{14}{subsection.54}
 \contentsline {subsection}{\numberline {2.6.4}Symmetries}{14}{subsection.55}
 \contentsline {subsection}{\numberline {2.6.5}Volume}{14}{subsection.56}
-\contentsline {subsection}{\numberline {2.6.6}Subsection 1}{15}{subsection.59}
-\contentsline {subsection}{\numberline {2.6.7}Subsection 2}{15}{subsection.60}
-\contentsline {section}{\numberline {2.7}Main Section 2}{15}{section.61}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{17}{appendix.62}
-\contentsline {chapter}{Bibliography}{19}{appendix*.63}
+\contentsline {chapter}{\numberline {3}Chapter Title Here}{15}{chapter.58}
+\contentsline {section}{\numberline {3.1}Main Section 1}{15}{section.59}
+\contentsline {subsection}{\numberline {3.1.1}Subsection 1}{15}{subsection.60}
+\contentsline {subsection}{\numberline {3.1.2}Subsection 2}{15}{subsection.61}
+\contentsline {section}{\numberline {3.2}Main Section 2}{15}{section.62}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{17}{appendix.63}
+\contentsline {chapter}{Bibliography}{19}{appendix*.64}

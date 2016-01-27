@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.24)  26 JAN 2016 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.24)  27 JAN 2016 01:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1116,7 +1116,7 @@ LaTeX Warning: Label `eqn:Einstein' multiply defined.
 LaTeX Warning: Label `eqn:Einstein' multiply defined.
 
 
-LaTeX Warning: Label `eqn:Einstein' multiply defined.
+LaTeX Warning: Label `ChapterX' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -1444,7 +1444,7 @@ Overfull \hbox (9.16711pt too wide) in paragraph at lines 225--225
 []\T1/pcr/m/n/10 \caption{The effects of treatments X and Y on the four groups studied.}[] 
  []
 
-[7] <Figures/Electron.pdf, id=428, 398.3386pt x 284.52756pt>
+[7] <Figures/Electron.pdf, id=439, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
  <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf used on input line 262.
@@ -1454,7 +1454,7 @@ Chapter 2.
 --------------------
  2. The Birkhoff Polytope
 --------------------
-<Figures/hypercube.png, id=507, 259.97125pt x 229.85875pt>
+<Figures/hypercube.png, id=517, 259.97125pt x 229.85875pt>
 File: Figures/hypercube.png Graphic file (type png)
  <use Figures/hypercube.png>
 Package pdftex.def Info: Figures/hypercube.png used on input line 21.
@@ -1484,7 +1484,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 166.
 
-[14]) (./Appendices/AppendixA.tex [15] [16
+) (./Chapters/Chapter2.tex [14]
+Chapter 3.
+--------------------
+ 3. Chapter Title Here
+--------------------
+) (./Appendices/AppendixA.tex [15
+
+] [16
 
 ]
 Appendix A.
@@ -1494,12 +1501,12 @@ Appendix A.
 ) [17] [18
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
  [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
  (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1511,18 +1518,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26230 strings out of 493117
- 466881 string characters out of 6135433
- 620485 words of memory out of 5000000
- 29251 multiletter control sequences out of 15000+600000
+ 26239 strings out of 493117
+ 467039 string characters out of 6135433
+ 620704 words of memory out of 5000000
+ 29256 multiletter control sequences out of 15000+600000
  66296 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,13n,49p,10377b,2245s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.pdf (43 pages, 296099 bytes).
+Output written on /Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.pdf (43 pages, 294738 bytes).
 PDF statistics:
- 650 PDF objects out of 1000 (max. 8388607)
- 570 compressed objects within 6 object streams
- 110 named destinations out of 1000 (max. 500000)
- 379 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 659 PDF objects out of 1000 (max. 8388607)
+ 579 compressed objects within 6 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 395 words of extra memory for PDF output out of 10000 (max. 10000000)
 
