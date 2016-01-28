@@ -1,16 +1,32 @@
 % Chapter Template
 
-\chapter{Chapter Title Here} % Main chapter title
+\chapter{Quadratic Programming} % Main chapter title
 
 \label{ChapterX} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
+An optimisation problem with a quadratic objective function and linear constraints is called a quadratic program. Problem of this type are important in their own right, and they also arise as subproblems in methods for general constrained optimisations. 
 
-\section{Main Section 1}
+\section{Definition}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
+The general quadratic program(QP) can be stated as
+
+\begin{equation}
+\begin{aligned}
+& \underset{x}{\text{min}}
+& & q(x)= \frac{1}{2}x^{T}Gx+x^{T}c \\
+& \text{subject to} & &  a_{i}^{T}x = b_i & i\in \mathbb{E} \\
+& & &  a_i^{T}x \geqslant b_{i} & i\in \mathbb{I}
+\end{aligned}
+\label{eqn:quadratic_programming}
+\end{equation}
+where $G$ is a symmetric $n\times n$ matrix, $E$ and $I$ are finite sets of indices, and $c$,$x$, and $a_i, i\in E \cup I$, are vectors in $\mathbb{R}^n$. Quadratic programs can always be solved (or shown to be infeasible) in a finite amount of computation, but the effort required to find a solution depends strongly on the characteristics of the objective function and the number of inequality constraints. If the Hessian matrix $G$ is positive semidefinite, we say that \ref{eqn:quadratic_programming} is a convex QP, and in this case the problem is often similar in difficulty to a linear program. (Strictly convex QPs are those in which G is positive definite.) Nonconvex QPs, in which G is an indefinite matrix, can be more challenging because they can have several stationary points and local minima.
+
+In this chapter we focus on convex quadratic program and different algorithms of convex quadratic programs.
+
+\section{Some classification of QP's}
 
 %-----------------------------------
 %	SUBSECTION 1
