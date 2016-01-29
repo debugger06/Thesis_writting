@@ -39,12 +39,40 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{amssymb}
+\usepackage[many]{tcolorbox}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 
 \addbibresource{example.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+
+
+
+\tikzset{fancytitle/.style ={fill=red, text=white}}
+\newtcolorbox{mybox}[2][]{
+  enhanced jigsaw,
+  width=0.25\textwidth,  %% change
+  colback=blue!20,
+  colframe=red,
+  title=#2,
+  boxrule=1pt,
+  left=10pt,right=10pt,top=20pt,bottom=20pt,
+  attach boxed title to top left= {xshift=10pt,yshift*=-\tcboxedtitleheight/2},
+  boxed title style={size=small,colback=red,colframe=green!75!black,arc=0ex},
+  before=\par\vspace{3mm},
+  after=\par,
+  overlay unbroken and first ={
+    \node[fancytitle, rounded corners] at (frame.east) {$\clubsuit$};
+    },
+  #1
+}
 
 
 

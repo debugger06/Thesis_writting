@@ -9,7 +9,7 @@
 %----------------------------------------------------------------------------------------
 An optimisation problem with a quadratic objective function and linear constraints is called a quadratic program. Problem of this type are important in their own right, and they also arise as subproblems in methods for general constrained optimisations. 
 
-\section{Definition}
+\section{Definition of QP}
 
 The general quadratic program(QP) can be stated as
 
@@ -24,28 +24,287 @@ The general quadratic program(QP) can be stated as
 \end{equation}
 where $G$ is a symmetric $n\times n$ matrix, $E$ and $I$ are finite sets of indices, and $c$,$x$, and $a_i, i\in E \cup I$, are vectors in $\mathbb{R}^n$. Quadratic programs can always be solved (or shown to be infeasible) in a finite amount of computation, but the effort required to find a solution depends strongly on the characteristics of the objective function and the number of inequality constraints. If the Hessian matrix $G$ is positive semidefinite, we say that \ref{eqn:quadratic_programming} is a convex QP, and in this case the problem is often similar in difficulty to a linear program. (Strictly convex QPs are those in which G is positive definite.) Nonconvex QPs, in which G is an indefinite matrix, can be more challenging because they can have several stationary points and local minima.
 
-In this chapter we focus on convex quadratic program and different algorithms of convex quadratic programs.
+In this chapter we will try to show different kinds of quadratic programs but we will mainly focus on convex quadratic program and different algorithms of convex quadratic programs.
 
-\section{Some classification of QP's}
+\section{Classification of QP's}
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\subsection{Subsection 1}
+Some classification of quadratic program's:
+\begin{itemize}
+	\item Unconstrianed QP
+	\item Box constrained QP
+	\item Equality constrained QP
+	\item Inequality constrained QP.
+\end{itemize}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+\section*{Important Definitions}
+\subsection*{KKT System}
+KKT System is
+\subsection*{Hessian Matrix}
+Hessian Matrix is.
 
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+\section{Equality-Constrained Quadratic Programs}
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+We start this section with of algorithms for quadratic programming by considering the case of equality constrained
 
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
+\subsection*{Properties of Equality-constrained QPs}
+To make it simple, we write the equality constraint in a form of matrix and define it as follows:
 
-\section{Main Section 2}
+\begin{equation}
+\begin{aligned}
+& \underset{x}{\text{min}}
+& & q(x)= \frac{1}{2}x^{T}Gx+x^{T}c \\
+& \text{subject to} & &  Ax=b
+\end{aligned}
+\label{eqn:equality_constrained_QP}
+\end{equation}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+where $A$ is the $m\times n$ Jacobian of constraints (with $m\leqslant n$) whose rows are $a_i^T,i \in \mathbb{E}$ and $b$ is the vecotor in $\mathbb{R}^n$ whose componants are $b_i, i \in \mathbb{E}$. Currently, we consider that $A$ has a full row rank (rank m) so that the constraints are consistent.
+
+The first-order necessary conditions for $x^*$ to be a solution of \ref{eqn:equality_constrained_QP} state that there is a vector $\lambda^*$ such that the following system of equations is satisfied:
+
+\begin{equation}
+\begin{bmatrix}
+  	G & -A^T \\
+    A & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+  	x^* \\
+    \lambda{*}
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  	-c \\
+    b
+  \end{bmatrix}	
+  \label{eqn:Properties_of_EC_QP}
+\end{equation}
+
+These conditions are a consequence of the general result for first-order optimality conditions.  $\lambda^*$ is called the vector of Lagrange multipliers. In \ref{eqn:Properties_of_EC_QP} we can write $x^*$ as $x^* = x+p$ which makes it useful for computation, where x is some estimate of the solution and p is the desired step. By introducing this and rearranging the equations, we obtain
+
+\begin{equation}
+\begin{bmatrix}
+  	G & A^T \\
+    A & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+  	-p \\
+    \lambda{*}
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  	g \\
+    h
+  \end{bmatrix}	
+  \label{eqn:Properties_of_EC_QP_2}
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+h= Ax-b, & g = c+Gx, & p = x^* - x.
+\end{aligned}
+\label{eqn:Properties_of_EC_QP_3}	
+\end{equation}
+
+The matrix \ref{eqn:Properties_of_EC_QP_2} is called the Karush-Kuhn-Tucker (KKT) matrix, and the following result gives conditions under which it is nonsingular. We will use $Z$ to denote the $n \times (n-m)$ matrix whose columns are basis for the null space of $A$. That is, $z$ has full  rank and satisfies $AZ=0$.
+
+
+\begin{lemma}
+\textit{Let $A$ have full row rank, and assume that the reduce Hessian matrix $Z^TGZ$ is positive definite. Then the KKT matrix}
+
+\begin{equation}
+	\begin{bmatrix}
+  		G & A^T \\
+    	A & 0
+    \end{bmatrix}
+\label{eqn:Properties_of_EC_QP_4}	
+\end{equation}
+\textit{is nonsingular, and hence there is a unique vector pair $(x^*, \lambda^*)$ satisfying \ref{eqn:Properties_of_EC_QP}}.	
+\label{lemma:KKT_nonsingularuty}
+\end{lemma}
+
+So, when the conditions of the \ref{lemma:KKT_nonsingularuty} is satisfied, there is a unique vector pair $(x^*, \lambda^*)$ that satiesfies the first-order necessary condition for \ref{eqn:equality_constrained_QP}. In fact, the second order sufficient conditions are also satisfied at $(x^*, \lambda^*)$, so $x^*$ is a strict local minimizer of \ref{eqn:equality_constrained_QP}. In fact we can use a direct argument to show that $x^*$ is a global solution of \ref{eqn:equality_constrained_QP}.
+
+
+\begin{theorem}
+	Let A have full row rank and assume that the reduced-Hessian matrix $Z^TGZ$ is positive definite. Then the vector $x^*$ satisfying \ref{eqn:Properties_of_EC_QP} is the unique global solution of \ref{eqn:equality_constrained_QP}.
+\end{theorem}
+\begin{proof}
+	Let x be any other feasible point (satisfying $Ax=b$), and as before, let $p$ denote the difference $x^*-x$. Since $Ax^*=Ax=b$, we have that $Ap=0$. By substituting into the objective function \ref{eqn:equality_constrained_QP}, we get
+	\begin{equation}
+	\begin{aligned}
+		q(x) & = \frac{1}{2}(x^*-p)^TG(x^*-p)+C^T(x^*-p)\\
+		& = \frac{1}{2}p^TGp-p^TGx^*-C^Tp+q(x^*)
+	\end{aligned}
+	\label{eqn:Properties_of_EC_QP_5}
+	\end{equation}
+	From \ref{eqn:Properties_of_EC_QP} we have that $Gx^*=-c+A^T\lambda^*$, so from $Ap = 0$ we have that
+	\begin{equation}
+	\begin{aligned}
+		p^TGx^* &= p^T(-c)+A^T\lambda^* = -p^Tc.
+	\end{aligned}
+	\label{eqn:Properties_of_EC_QP_6}
+	\end{equation}
+	By substituting this relation into \ref{eqn:Properties_of_EC_QP_5}, we obtain
+	\begin{equation}
+	\begin{aligned}
+		q(x)= \frac{1}{2} p^TGp + q(x^*).
+	\end{aligned}
+	\label{eqn:Properties_of_EC_QP_7}
+	\end{equation}
+	Since $p$ lies in the null space of $A$, we can write $p=Zu$ for some vector $u\in \mathbb{R}^{n-m}$, so that
+	\begin{equation}
+	\begin{aligned}
+		q(x)= \frac{1}{2} u^TZ^TGZu + q(x^*).
+	\end{aligned}
+	\label{eqn:Properties_of_EC_QP_8}
+	\end{equation}
+	By positive definiteness of $Z^TGZ$, we conclude that $q(x)>q(x^*)$ except when $u=0$, that is, when $x=x*$. Therefore, $x^*$ is the unique global solution of \ref{eqn:equality_constrained_QP}
+\end{proof}
+
+When the reduced Hessian matrix $Z^TGZ$ is positive semidefinite with zero eigenvalues, the vector $x^*$ satisfying \ref{eqn:Properties_of_EC_QP_2} is a local minimizer but not a strict local minimizer. If the reduced Hessian has negative eigenvalues, then $x^*$ is only a stationary point, not a local minimizer.
+
+\section{Direct Solution of the KKT System}
+
+In this section we discuss the efficient methods of solving KKT system. The KKT system is always indefinite if $m\geqslant1$. We can apply direct techniques to solve indefinite KKT system.
+
+\subsection*{Factoring the Full Scale System}
+One option for solving KKT system is to perform triangular factorization on the full KKT matrix and then perform backward and forward substitution with the triangular factors. It is not possible to apply Cholesky factorization as it is indefinite.Another option can be Gaussian Elimination to obtain the $L$ and $U$ factors, but this method does not consider the symmetry.
+
+So, the most effective strategy is to use symmetric indefinite factorization which has the form of:
+
+\begin{equation}
+	\begin{aligned}
+		P^TKP = LDL^T
+	\end{aligned}
+	\label{eqn:SIF_1}
+\end{equation}
+where $P$ is an appropriately chosen permutation matrix. $L$ is lower triangular with $diag(L) = I$ and $D$ is block diagonal.
+Based on \ref{eqn:SIF_1}, the KKT system \ref{eqn:Properties_of_EC_QP_2} is solved as follows:
+\begin{equation}
+	\begin{aligned}
+		solve & & Ly = P^T
+		\begin{bmatrix}
+  		g \\
+    	h
+    \end{bmatrix}\\
+    solve & & D\hat{y} = y\\
+    solve & & L^T\bar{y} = \hat{y}\\
+    set & & \begin{bmatrix}
+  		-p \\
+    	\lambda^*
+    \end{bmatrix} = P\bar{y}
+	\end{aligned}
+	\label{eqn:SIF_2}
+\end{equation}
+
+This approach of factoring  the full $(n+m)\times (n+m)$ KKt matrix is quite effective  on many problems. It can be expensive when the permutation matrix $P$ are not able to maintain sparsity in the $L$ factor.
+\subsection*{Range-space approach}
+The range-space approach is useful when $G\in \mathbb{R}^{n\times n}$ is symmetric positive definite. We can multiply the first part of the equation \ref{eqn:Properties_of_EC_QP_2}  by $AG^-1$ and then subtract the second part to obtain a linear system in the vector $\lambda^*$ alone:
+
+\begin{equation}
+	\begin{aligned}
+		(AG^{-1}A^T\lambda^*) = (AG^{-1}g-h)
+	\end{aligned}
+	\label{eqn:Range_space_1}
+\end{equation}
+
+We solve this symmetric semidifinite system for $\lambda^*$ and then recover $p$ from the first equation in \ref{eqn:Properties_of_EC_QP_2} by solving
+\begin{equation}
+	\begin{aligned}
+		Gp = A^T\lambda^*-g
+	\end{aligned}
+	\label{eqn:Range_space_2}
+\end{equation}
+
+This approach requires us to perform operation with $G^{-1}$, as well as to compute the factorization of the $m\times n$ matrix $AG^{-1}A^T$. That is why it is useful when:
+\begin{itemize}
+	\item G is well conditioned and easily invertible (e.g., G is diagonal or block-diagonal),
+	\item $B^{-1}$ is known explicitely (e.g., by means of a quasi-Newton updating formula),
+	\item the number $m$ of equality constraints is small.
+\end{itemize}
+
+\subsection*{Null-space approach}
+The null-space approach does not require regularity of $G$ and thus has a wider range of applicability than the range-space approach.
+
+We assume that $A\in \mathbb{R}^{m\times n}$ has full row rank m and that $Z^TGZ$ is positive definite, where $Z\in \mathbb{R}^{n\times (n-m)}$ is the matrix whose columns span Ker $A$ which can be computed by QR factorization.
+
+We partition the vector $x^*$ according to
+\begin{equation}
+	\begin{aligned}
+		x^* = Yw_y + Zw_z
+	\end{aligned}
+	\label{eqn:Null_space_1}
+\end{equation}
+where $Y\in \mathbf{R}^{n\times m}$ is such that $[Y\quad Z]\in \mathbb{R}^{n\times n}$ is nonsingular and $w_y \in \mathbb{R}^m,w_Z \in \mathbb{R}^{n-m}$.
+
+Substituting \ref{eqn:Null_space_1} into the \ref{eqn:Properties_of_EC_QP_2}, we get
+\begin{equation}
+	\begin{aligned}
+		Ax^* = AYw_Y + AZw_Z = c\\
+		AZ=0
+	\end{aligned}
+	\label{eqn:Null_space_2}
+\end{equation}
+i.e., $Yw_Y$ is a particular solution of $Ax=c$.
+
+Since $A\in \mathbb{R}^{m\times n}$ has rank $m$ and $[Y \quad Z]\in \mathbb{R}^{n\times n}$ is nonsingular, the product matrix $[Y \quad Z] = [AY \quad 0]\in \mathbb{R}^{m\times m}$ is non singular. Hence, $w_Y$ is well determined by \ref{eqn:Null_space_2}.
+
+On the otherhand, substituting \ref{eqn:Null_space_1} into the first equation of \ref{eqn:Properties_of_EC_QP_2}, we get
+\begin{equation}
+	\begin{aligned}
+		GYw_Y + GZw_Z + A^T\lambda^* = b.
+	\end{aligned}
+	\label{eqn:Null_space_3}
+\end{equation}
+Multiplying by $Z^T$ and observing $Z^{T}A^{T}=(AZ)^T=0$ yields
+\begin{equation}
+	\begin{aligned}
+		Z^TGZw_Z = Z^Tb - Z^TGY w_Y.
+	\end{aligned}
+	\label{eqn:Null_space_4}
+\end{equation}
+
+The reduced KKT system \ref{eqn:Null_space_4} can be solved by a Cholesky factorization of the reduced Hessian $Z^TBZ\in \mathbb{R}^{(n-m)\times(n-m)}$. Once $w_Y$ and $w_Z$ have been computed as the solution of \ref{eqn:Null_space_3} and \ref{eqn:Null_space_3}, $x^*$ is obtained according to \ref{eqn:Null_space_1}.
+
+Finally, the Lagrange multiplier turns out to be the solution of the linear system arising from multiplication of the equation \ref{eqn:Null_space_1} by $Y^T$:
+\begin{equation}
+	\begin{aligned}
+		(AY)^T\lambda^* = Y^Tb - Y^TGx^*
+	\end{aligned}
+\end{equation} 
+
+
+\section{Iterative solution of the KKT system}
+Direct solution of the KKT system can be sometimes expensive, the possible alternative is iterative method. An iterative solver can be applied either to the entire KKT system or, as in the null-space and range-space approach, use the special structure of the KKT matrix.
+\subsection*{Krylov methods}
+The KKT matrix $K\in \mathbb{R}^{(n+m)\times (n+m)}$ is indefinite. That is if, if $A$ has full row rank $m$, $K$ has $n$ positive and $m$ negative eigenvalues.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
