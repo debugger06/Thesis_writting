@@ -37,6 +37,13 @@ Some classification of quadratic program's:
 \end{itemize}
 
 \section*{Important Definitions}
+\subsection*{Logarithmic barrier}
+Consider inequalities $Ax \leqslant b$ with $A$ of size $m\times n$ and with rows $a_i^T$
+define
+\begin{equation*}
+P=\lbrace x \mid Ax \leqslantb \rbrace \text{ and } P^0=\lbrace x \mid Ax < b \rbrace
+\end{equation*}
+
 \subsection*{KKT System}
 KKT System is
 \subsection*{Hessian Matrix}
@@ -521,7 +528,46 @@ Where
 		\mathcal{Y} = diag(y_1,y_2,...,y_m), & & \Lambda = diag(\lambda_1 , \lambda_2,...,\lambda_1), & & e = (1,1,...,1)^T
 	\end{aligned}
 \end{equation*}
+and  $\sigma \in [0,1]$. The solution of \ref{eqn:Active_set_5} for all positive values of $\sigma$ and $\mu$ define the central path, which is a trajectory that leads to the solution to the QP as $\sigma \mu$ tends to zero.
 
+After selecting $\mu$ and applying Newton's method to \ref{eqn:Active_set_5} the following linear system is achieved:
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			G & 0 & -A^T\\
+			A & -I & 0\\
+			0 & \Lambda & \mathcal{Y} 
+		\end{bmatrix}
+		\begin{bmatrix}
+			\Delta x\\
+			\Delta y\\
+			\Delta \lambda
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			-r_d\\
+			-r_p\\
+			-\Lambda \mathcal{Y}e + \sigma \mu e
+		\end{bmatrix}
+	\end{aligned}
+	\label{eqn: Path_planning_6}
+\end{equation}
+
+where
+\begin{equation*}
+	\begin{aligned}
+		r_d = Gx-A^T\lambda +c & & r_p = Ax-y-b
+	\end{aligned}
+\end{equation*}
+
+The new iterate $(x^+,y^+,\lambda^+)$ are obtained by means of
+\begin{equation*}
+	\begin{aligned}
+		(x^+,y^+,\lambda^+) = (x,y,\lambda) + \alpha (\Delta x, \Delta y, \Delta \lambda )
+	\end{aligned}
+\end{equation*}
+
+$\alpha$ is chosen such that $(x^+,\lambda^+)>0$ and possibly to satisfy various other conditions.
 
 
 
