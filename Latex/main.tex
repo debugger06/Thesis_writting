@@ -59,24 +59,25 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 
 
 
-\tikzset{fancytitle/.style ={fill=red, text=white}}
-\newtcolorbox{mybox}[2][]{
-  enhanced jigsaw,
-  width=0.25\textwidth,  %% change
-  colback=blue!20,
-  colframe=red,
-  title=#2,
-  boxrule=1pt,
-  left=10pt,right=10pt,top=20pt,bottom=20pt,
-  attach boxed title to top left= {xshift=10pt,yshift*=-\tcboxedtitleheight/2},
-  boxed title style={size=small,colback=red,colframe=green!75!black,arc=0ex},
-  before=\par\vspace{3mm},
-  after=\par,
-  overlay unbroken and first ={
-    \node[fancytitle, rounded corners] at (frame.east) {$\clubsuit$};
+\usepackage[many]{tcolorbox}
+\usepackage{lipsum}
+\usepackage{varwidth}
+\newtcolorbox{mybox}[2][]{enhanced,
+attach boxed title to top left={xshift=1cm,yshift=-2mm},
+fonttitle=\bfseries,varwidth boxed title=0.7\linewidth,
+colbacktitle=green!45!white,coltitle=green!10!black,colframe=green!50!black,
+interior style={top color=yellow!10!white,bottom color=green!10!white},
+boxed title style={enhanced,boxrule=0.75mm,colframe=white,
+borderline={0.1mm}{0mm}{green!50!black},
+borderline={0.1mm}{0.75mm}{green!50!black},
+interior style={top color=green!10!white,bottom color=green!10!white,
+middle color=green!50!white},
+drop fuzzy shadow},
+overlay unbroken and first ={
+    \node[fill=red, text=white, rounded corners] at (frame.east) {$\clubsuit$};
     },
-  #1
-}
+title={#2},#1}
+
 
 
 

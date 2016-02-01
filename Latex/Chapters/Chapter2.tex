@@ -115,7 +115,7 @@ h= Ax-b, & g = c+Gx, & p = x^* - x.
 
 The matrix \ref{eqn:Properties_of_EC_QP_2} is called the Karush-Kuhn-Tucker (KKT) matrix, and the following result gives conditions under which it is nonsingular. We will use $Z$ to denote the $n \times (n-m)$ matrix whose columns are basis for the null space of $A$. That is, $z$ has full  rank and satisfies $AZ=0$.
 
-
+\begin{mybox}{Lemma}
 \begin{lemma}
 \textit{Let $A$ have full row rank, and assume that the reduce Hessian matrix $Z^TGZ$ is positive definite. Then the KKT matrix}
 
@@ -129,13 +129,15 @@ The matrix \ref{eqn:Properties_of_EC_QP_2} is called the Karush-Kuhn-Tucker (KKT
 \textit{is nonsingular, and hence there is a unique vector pair $(x^*, \lambda^*)$ satisfying \ref{eqn:Properties_of_EC_QP}}.	
 \label{lemma:KKT_nonsingularuty}
 \end{lemma}
+\end{mybox}
 
 So, when the conditions of the \ref{lemma:KKT_nonsingularuty} is satisfied, there is a unique vector pair $(x^*, \lambda^*)$ that satiesfies the first-order necessary condition for \ref{eqn:equality_constrained_QP}. In fact, the second order sufficient conditions are also satisfied at $(x^*, \lambda^*)$, so $x^*$ is a strict local minimizer of \ref{eqn:equality_constrained_QP}. In fact we can use a direct argument to show that $x^*$ is a global solution of \ref{eqn:equality_constrained_QP}.
 
-
+\begin{mybox}{Theorem}
 \begin{theorem}
 	Let A have full row rank and assume that the reduced-Hessian matrix $Z^TGZ$ is positive definite. Then the vector $x^*$ satisfying \ref{eqn:Properties_of_EC_QP} is the unique global solution of \ref{eqn:equality_constrained_QP}.
 \end{theorem}
+\end{mybox}
 \begin{proof}
 	Let x be any other feasible point (satisfying $Ax=b$), and as before, let $p$ denote the difference $x^*-x$. Since $Ax^*=Ax=b$, we have that $Ap=0$. By substituting into the objective function \ref{eqn:equality_constrained_QP}, we get
 	\begin{equation}
@@ -355,6 +357,7 @@ So, to maximize the decrement of q, $\alpha_k$ should be as large as possible in
 	\begin{aligned}
 		\alpha_k = {\text{min}} \left( 1, \underset{i\notin \mathcal{W}_k,a_i^Tp_k<0 }{\text{min}} \frac{b_i-a_i^Tx_k}{a_i^Tp_k} \right) 
 	\end{aligned}
+	\label{eqn:Active_set_3}
 \end{equation}
 
 The constraints $i$ for which the minimum is achieved called blocking constraints. 
@@ -369,7 +372,7 @@ This method is repeated untill a point $\hat{x}$ has been achieved that minimize
 	\begin{aligned}
 		\underset{i\in \hat{\mathcal{W}}}{\sum}a_i\hat{\lambda}_i = g = G\hat{x}+c
 	\end{aligned}
-	\label{eqn:Active_set_3}
+	\label{eqn:Active_set_4}
 \end{equation}
 
 for some Lagrange multipliers $\hat{\lambda}_i,i \in \hat{\mathcal{W}}$.  It follows that $x^*$ and $\lambda^*$ satisfy the first KKT condition, if the multipliers are defined corresponding to the inequality constraints that are not in the working set to be zero. As there are some control imposed on the step length, $x^*$ is also feasible with respect to all the constraints, so the second and third KKT conditions are satisfied at this point.\\
@@ -384,7 +387,7 @@ If on the other hand, if there exists some $j \in \hat{\mathcal{W}}\cap \mathcal
 \end{equation*}
 
 That constraints has to be removed from the active set and solve new subproblem. This will decreases the objective function. The following theorem states that this strategy produces a direction $p$ at the next iteration  that is feasible with respect to the removed constraint.
-
+\begin{mybox}{Theorem}
 \begin{theorem}
 	Suppose that the point $\hat{x}$ satisfies first-order conditions for the equality-constrained subproblem with working set $\hat{W}$; that is, equation \ref{eqn:Active_set_3} is satisfied along with $a_i^T\hat{x}=b_i$ for all $i\in \hat{W}$ . Suppose, too, that the constraint gradients $a_i,i\in \hat{W}$, are linearly independent and that there is an index $j\in \hat{W}$ such that $\hat{lambda}_j<0$. 
 	
@@ -394,40 +397,139 @@ That constraints has to be removed from the active set and solve new subproblem.
 		& \underset{p}{\text{min}} & & \frac{1}{2}p^{T}Gp+(G\hat{x}+c)^{T}p, \\
 & \text{subject to} & &  a_{i}^{T}p = 0 & \forall i\in \hat{\mathcal{W}} \text{ with } i\neq j
 	\end{aligned}
+	\label{eqn:Active_set_5}
 \end{equation}
 Then $p$ is a feasible direction for constraint $j$,that is, $a_j^Tp \geqslant 0$. Moreover,if $p$ satisfies second- order sufficient conditions for above equation, then we have that $a_j^T > 0$, and that $p$ is a descent direction for $q(.)$.
 \end{theorem}
-
+\end{mybox}
 Whenever $p_k$ obtained from \ref{eqn:Active_set_1} is nonzero and satisfies second-order sufficient optimality conditions for the current working set, it is a direction of strict descent for $q(.)$
 
+
+\begin{mybox}{Theorem}
 \begin{theorem}
 	Suppose that the solution $p_k$ of \ref{eqn:Active_set_1} is nonzero and satisfies the second order sufficient conditions for optimality for that problem. Then the function $q(.)$ is strictly decreasing along the direction $p_k$ .
 \end{theorem}
-
+\end{mybox}
 
 So it can be concluded that, When G is positive definite-the second order sufficient conditions are satisfied for all feasible subproblems of the form \ref{eqn:Active_set_1}. Hence, it follows from the result that a strict decrease in $q(.)$ can be obtained whenever $p_k \neq 0$.
 
 \subsection*{Specification of the Active-set method for convex QP}
+The whole Active-set algorithm can be specified as following:
 
-The whole Active-set algorithm can be specified as following
-
-\begin{algorithm}
+\begin{algorithm}[h]
   \caption{Active-set method for convex QP}\label{euclid}
   \begin{algorithmic}[1]
-    \Procedure{ActiveSet}{}\Comment{The g.c.d. of a and b}
-      \State $r\gets a\bmod b$
-      \While{$r\not=0$}\Comment{We have the answer if r is 0}
-        \State $a\gets b$
-        \State $b\gets r$
-        \State $r\gets a\bmod b$
-      \EndWhile\label{euclidendwhile}
-      \For{\texttt{<some condition>}}
-        \State \texttt{<do stuff>}
+    \Procedure{ActiveSet}{}
+      \State Compute a feasible starting point $x_0$;
+      \State Set $\mathcal{W}_0$ to be a subset of the active constraints at $x_0$;
+      \For{\texttt{$k=0,1,2,...$}}
+        \State Solve \ref{eqn:Active_set_1} to find $p_k$;
+        \If{$p_k==0$}
+          \State Compute Lagrange multipliers $\hat{\lambda}$ that satisfy \ref{eqn:Active_set_1} with $\hat{\mathcal{W}}==\mathcal{W}_k$
+          \If{$\hat{\lambda} \geqslant 0$} for all $i \in \mathcal{W}\cap \mathcal{I}$
+          	\State Stop with solution $x^* = x_k$
+          \Else
+          	\State $j \gets argmin_{j\in \mathcal{W}_k \cap \mathcal{I}}$ $\hat{\lambda}_j$
+          	\State $x_{k+1} \gets x_k$
+          	\State $\mathcal{W}_{k+1} \gets \mathcal{W}_k\backslash \lbrace{j \rbrace}$
+          \EndIf 
+        \Else
+          \State $\alpha_k$ from \ref{eqn:Active_set_3}
+          \State $x_{k+1} \gets x_k + \alpha_kp_k$
+          \If{there are blocking constraints}
+          	\State obtain $\mathcal{W}_{k+1}$ by adding one of the blocking constraints to $\mathcal{W}_k$
+          \Else
+          	\State $\mathcal{W}_{k+1} \gets \mathcal{W}_k$  
+          \EndIf
+        \EndIf
       \EndFor
-      \State \textbf{return} $b$\Comment{The gcd is b}
     \EndProcedure
   \end{algorithmic}
 \end{algorithm}
+To implement active-set method efficiently an important key is reuse of nformation from solving the equality-constrained subproblem at the next iteration. The only difference between two consecutive subproblems is that the working set grows or shrinks by a single component. Efficient codes perform updates of the matrix factorizations obtained at the previous iteration, rather than calculating them from scratch each time.
+
+
+
+\section{Interior-Point Method}
+Interior-point methods follow iterative approach which is a good candidate as alternative of active-set method. This method is also know as trajectory-following, path-following method. 
+Here only convex quadratic programming problem with inequality constraints will be focused. It is easier to the problem as follows:
+
+\begin{equation}
+\begin{aligned}
+& \underset{x}{\text{min}}
+& & q(x)= \frac{1}{2}x^{T}Gx+x^{T}c \\
+& \text{subject to} & &  Ax \geqslant b
+\end{aligned}
+\label{eqn:Path_following_1}
+\end{equation}
+
+where $G\in \mathbb{R}^{n\times n}$ is symmetric, positive semidefinite, $A\in \mathbb{R}^{m\times n}$.
+\begin{equation*}
+	\begin{aligned}
+		A = [a_i]_{i\in \mathcal{I}} & & b = [b_i]_{i\in \mathcal{I}}, & & \mathcal{I}=\lbrace 1,2,3...,m \rbrace 
+	\end{aligned}
+\end{equation*}
+
+KKT conditions for this notation can be written as follows:
+\begin{equation}
+	\begin{aligned}
+		Gx- A^T\lambda + c &= 0,\\
+		Ax - b  &\geqslant 0, \\
+		(Ax-b)_i\lambda_i &= 0, & & i = 1,2,...,m\\
+		\lambda &\geqslant 0.
+	\end{aligned}
+	\label{eqn:Path_following_2}
+\end{equation}
+By introducing the slack vector $y \geqslant 0$, conditions can be rewritten as:
+\begin{equation}
+	\begin{aligned}
+		Gx- A^T\lambda + c &= 0,\\
+		Ax - y - b  &= 0, \\
+		y_i\lambda_i &= 0, & & i=1,2,...,m\\
+		(y,\lambda) \geqslant 0,
+	\end{aligned}
+	\label{eqn:Path_following_3}
+\end{equation}
+
+As $G$ is positive semidefinite, above KKT conditions are necessary and sufficient to solve convex quadratic program.
+
+Let, current iterate $(x,y,z)$ that satisfies $(y,\lambda)>0$, a complementary measure $\mu$ can be defined as:
+\begin{equation}
+	\begin{aligned}
+		\mu = \frac{y^T\lambda}{m}
+	\end{aligned}
+	\label{eqn:Path_following_4}
+\end{equation}
+Derived path-following for the KKT conditions by considering the above KKT conditions:
+
+\begin{equation}
+\begin{aligned}
+F(x,y,\lambda:\sigma,\mu) = 
+\begin{bmatrix}
+  	Gx-A^T\lambda+c\\
+    Ax-y-b\\
+    \mathcal{Y} \Lambda e - \sigma \mu e
+  \end{bmatrix}
+  =0
+\end{aligned}
+\label{eqn:Path_following_5}
+\end{equation}
+
+Where
+\begin{equation*}
+	\begin{aligned}
+		\mathcal{Y} = diag(y_1,y_2,...,y_m), & & \Lambda = diag(\lambda_1 , \lambda_2,...,\lambda_1), & & e = (1,1,...,1)^T
+	\end{aligned}
+\end{equation*}
+
+
+
+
+
+
+
+
+
 
 
 
