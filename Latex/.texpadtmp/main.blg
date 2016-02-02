@@ -15,6 +15,10 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: main-blx.bib
 Database file #2: ../example.bib
+Repeated entry---line 57 of file ../example.bib
+ : @article{Reference3
+ :                    ,
+I'm skipping whatever remains of this entry
 Biblatex version: 2.8
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
@@ -59,3 +63,4 @@ warning$ -- 0
 while$ -- 119
 width$ -- 0
 write$ -- 94
+(There was 1 error message)

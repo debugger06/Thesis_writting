@@ -1,0 +1,56 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\contentsline {chapter}{Declaration of Authorship}{iii}{Doc-Start}
+\contentsline {chapter}{Abstract}{vii}{Doc-Start}
+\contentsline {chapter}{Acknowledgements}{ix}{Doc-Start}
+\contentsline {chapter}{\numberline {1}Chapter Title Here}{1}{chapter.10}
+\contentsline {section}{\numberline {1.1}Welcome and Thank You}{1}{section.11}
+\contentsline {section}{\numberline {1.2}Learning \LaTeX {}}{1}{section.12}
+\contentsline {subsection}{\numberline {1.2.1}A (not so short) Introduction to \LaTeX {}}{1}{subsection.13}
+\contentsline {subsection}{\numberline {1.2.2}A Short Math Guide for \LaTeX {}}{2}{subsection.14}
+\contentsline {subsection}{\numberline {1.2.3}Common \LaTeX {} Math Symbols}{2}{subsection.15}
+\contentsline {subsection}{\numberline {1.2.4}\LaTeX {} on a Mac}{2}{subsection.16}
+\contentsline {section}{\numberline {1.3}Getting Started with this Template}{2}{section.17}
+\contentsline {subsection}{\numberline {1.3.1}About this Template}{2}{subsection.18}
+\contentsline {section}{\numberline {1.4}What this Template Includes}{3}{section.19}
+\contentsline {subsection}{\numberline {1.4.1}Folders}{3}{subsection.20}
+\contentsline {subsection}{\numberline {1.4.2}Files}{3}{subsection.21}
+\contentsline {section}{\numberline {1.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{4}{section.22}
+\contentsline {section}{\numberline {1.6}The \texttt {main.tex} File Explained}{5}{section.23}
+\contentsline {section}{\numberline {1.7}Thesis Features and Conventions}{6}{section.24}
+\contentsline {subsection}{\numberline {1.7.1}Printing Format}{6}{subsection.25}
+\contentsline {subsection}{\numberline {1.7.2}Using US Letter Paper}{6}{subsection.26}
+\contentsline {subsection}{\numberline {1.7.3}References}{6}{subsection.27}
+\contentsline {subsubsection}{A Note on bibtex}{7}{section*.29}
+\contentsline {subsection}{\numberline {1.7.4}Tables}{7}{subsection.30}
+\contentsline {subsection}{\numberline {1.7.5}Figures}{8}{subsection.32}
+\contentsline {subsection}{\numberline {1.7.6}Typesetting mathematics}{9}{subsection.34}
+\contentsline {section}{\numberline {1.8}Sectioning and Subsectioning}{9}{section.36}
+\contentsline {section}{\numberline {1.9}In Closing}{10}{section.37}
+\contentsline {chapter}{\numberline {2}The Birkhoff Polytope}{11}{chapter.38}
+\contentsline {section}{\numberline {2.1}Hypermatrix}{11}{section.39}
+\contentsline {section}{\numberline {2.2}Doubly-Stochastic Matrix}{11}{section.41}
+\contentsline {section}{\numberline {2.3}Permutation Matrix}{12}{section.42}
+\contentsline {section}{\numberline {2.4}Polytopes}{12}{section.43}
+\contentsline {subsection}{\numberline {2.4.1}Elements of polytope}{12}{subsection.44}
+\contentsline {subsection}{\numberline {2.4.2}Properties of Polytope}{13}{subsection.45}
+\contentsline {section}{\numberline {2.5}Birkhoff Polytope}{13}{section.49}
+\contentsline {section}{\numberline {2.6}Properties of $B_n$}{14}{section.51}
+\contentsline {subsection}{\numberline {2.6.1}Vetices}{14}{subsection.52}
+\contentsline {subsection}{\numberline {2.6.2}Edges}{14}{subsection.53}
+\contentsline {subsection}{\numberline {2.6.3}Facets}{14}{subsection.54}
+\contentsline {subsection}{\numberline {2.6.4}Symmetries}{14}{subsection.55}
+\contentsline {subsection}{\numberline {2.6.5}Volume}{14}{subsection.56}
+\contentsline {chapter}{\numberline {3}Quadratic Programming}{15}{chapter.58}
+\contentsline {section}{\numberline {3.1}Definition of QP}{15}{section.59}
+\contentsline {section}{\numberline {3.2}Classification of QP's}{15}{section.61}
+\contentsline {section}{\numberline {3.3}Equality-Constrained Quadratic Programs}{18}{section.70}
+\contentsline {section}{\numberline {3.4}Direct Solution of the KKT System}{20}{section.83}
+\contentsline {section}{\numberline {3.5}Iterative solution of the KKT system}{21}{section.96}
+\contentsline {section}{\numberline {3.6}Inequality-Constrained Problems}{21}{section.97}
+\contentsline {subsection}{\numberline {3.6.1}Properties of Inequality-constrained problems}{22}{subsection.98}
+\contentsline {section}{\numberline {3.7}Active-set Methods for Convex QPs}{22}{section.105}
+\contentsline {section}{\numberline {3.8}Interior-Point Method}{25}{section.116}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{29}{appendix.123}
+\contentsline {chapter}{Bibliography}{31}{appendix*.124}

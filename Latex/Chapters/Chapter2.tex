@@ -38,16 +38,104 @@ Some classification of quadratic program's:
 
 \section*{Important Definitions}
 \subsection*{Logarithmic barrier}
-Consider inequalities $Ax \leqslant b$ with $A$ of size $m\times n$ and with rows $a_i^T$
-define
+Consider inequalities $Ax \leqslant b$ with $A$ of size $m\times n$ and with rows $a_i^T$. Define
 \begin{equation*}
-P=\lbrace x \mid Ax \leqslantb \rbrace \text{ and } P^0=\lbrace x \mid Ax < b \rbrace
+P=\lbrace x \mid Ax \leqslant b \rbrace \text{ and } P^0=\lbrace x \mid Ax < b \rbrace
 \end{equation*}
+logarithmic barrier for the inequalities $Ax\leqslant b$:
+\begin{equation*}
+\begin{aligned}
+	\phi(x) = - \sum_{i=1}^{m}\log(b_i - a_i^Tx) & & \text{with domain } P^0
+\end{aligned}	
+\end{equation*}
+\begin{figure}[h]
+\centering
+\includegraphics{Figures/logarithmic_barrier.png}
+\decoRule
+\caption[hypercube]{Logarithmic barrier function.}
+\label{fig:logarithmic_barrier}
+\end{figure}
+
+
+\subsection*{Gradient}
+Gradient $\nabla \phi(x)$ is the n-vector with $\nabla \phi(x)_i = \frac{\delta \phi (x)}{\delta x_i}$
+\begin{equation*}
+	\begin{aligned}
+		\nabla \phi(x) = \sum_{k=1}^{m} \frac{1}{b_k-a_k^Tx}a_k = A^Td_x 
+	\end{aligned}
+\end{equation*}
+$d_x$ denotes the positive $m-$vector
+\begin{equation*}
+	\begin{aligned}
+		d_x = \left( \frac{1}{b_1-a_1^Tx},..., \frac{1}{b_m-a_m^Tx} \right)
+	\end{aligned}
+\end{equation*}
+
 
 \subsection*{KKT System}
 KKT System is
+
 \subsection*{Hessian Matrix}
-Hessian Matrix is.
+Hessian Matrix Gradient $\nabla^2 \phi(x)$ is the $n\times n$-matrix with $\nabla \phi (x)_{ij} = \frac{\delta^2 \phi (x)}{\delta x_i \delta x_j}$
+
+\begin{equation*}
+	\begin{aligned}
+		\nabla^2 \phi(x) = \sum_{k=1}^{m} \frac{1}{(b_k-a_k^Tx)^2} a_k a_k^T = A^T diag(d_x)^2 A 
+	\end{aligned}
+\end{equation*}
+
+\subsection*{Central Path}
+Consider the linear programming problem in standard form:
+\begin{equation*}
+\begin{aligned}
+\text{min } c^Tx, & & \text{subject to} Ax=b, \geqslant 0	
+\end{aligned}
+\end{equation*}
+where $c$ and $x$ are vectors in $\mathbb{R}^n$, b is a vector in $\mathbb{R}^m$, and $A$ is an $m\times n$ matrix with full row rank. The dual problem of the above problem is
+\begin{equation*}
+\begin{aligned}
+	\text{max } b^T\lambda, & & \text{subject to} A^T\lambda + s = c, x\geqslant 0
+\end{aligned}
+\end{equation*}
+where $\lambda$ is a vector in $\mathbb{R}^m$ and s is a vector in $\mathbb{R}^n$
+The primal-dual feasible set $\mathcal{F}$ and strictly feasible set $\mathcal{F}^0$ are defined as
+\begin{equation*}
+	\begin{aligned}
+		\mathcal{F} &= \lbrace (x,\lambda,s) \mid Ax=b, A^T\lambda +s = c, (x,s) \geqslant0 \rbrace\\
+		\mathcal{F}^0 &= \lbrace (x,\lambda,s) \mid Ax=b, A^T\lambda +s = c, (x,s) > 0 \rbrace
+	\end{aligned}
+\end{equation*}
+The central path $C$ is an arc of strictly feasible points. It is parameterized by a scalar $\eta > 0$, and each point $(x_\tau ,\lambda_\tau, s_\tau)\in \mathcal{C}$ satisfies the following equations:
+\begin{equation*}
+	\begin{aligned}
+		A^T\lambda+s &= c,\\
+		Ax &= b,
+		x_i,s_i &= \tau & & i = 1,2,...n.\\ 
+		(x,s ) & > 0.
+	\end{aligned}
+\end{equation*}
+So the central path is defined as:
+\begin{equation*}
+\begin{aligned}
+	\mathcal{C} = \lbrace (x_\tau,\lambda_\tau, s_\tau)\mid \tau>0\rbrace
+\end{aligned}
+\end{equation*}
+Another way of defining $\mathcal{C}$ is:
+\begin{equation*}
+\begin{aligned}
+F(x_\tau,\lambda_\tau, s_\tau)=
+	\begin{bmatrix}
+		0\\
+		0\\
+		\tau e
+	\end{bmatrix},
+	(x_\tau,s_\tau) > 0
+\end{aligned}
+\end{equation*}
+
+the conditions approximate more and more colsely as $\tau$ goes to zero. If $\mathcal{C}$ converges to anything as $\tau \downarrow 0$, it must converge to a primal-dual solution of the linear program.
+
+
 \subsection*{Active set}
 The Active set $\mathbb{A}(x)$ at any feasible $x$ consists of the equality constraint indices from $\varepsilon$ together with the indices of the inequality constraints $i$ for which $c_i(x)=0$; that is,
 \begin{equation*}
@@ -292,9 +380,66 @@ Finally, the Lagrange multiplier turns out to be the solution of the linear syst
 
 
 \section{Iterative solution of the KKT system}
-Direct solution of the KKT system can be sometimes expensive, the possible alternative is iterative method. An iterative solver can be applied either to the entire KKT system or, as in the null-space and range-space approach, use the special structure of the KKT matrix.
-\subsection*{Krylov methods}
-The KKT matrix $K\in \mathbb{R}^{(n+m)\times (n+m)}$ is indefinite. That is if, if $A$ has full row rank $m$, $K$ has $n$ positive and $m$ negative eigenvalues. So, for iterative solution of \ref{eqn:Properties_of_EC_QP_2} Krylov subspace methods like Generalized Minimum Residuals(GMRES) and Quasi Minimum Residual(QMR) are appropriate candidates.
+Direct solution of the KKT system can be sometimes expensive, the possible alternative is iterative method to solve KKT system. one of the famous iterative method is Conjugate Gradient method. Although it is not recommended for solving the full system using the CG mathod because it can be unstable on systems that are not positive definite. An iterative solver can be applied either to the entire KKT system or, as in the null-space and range-space approach, use the special structure of the KKT matrix.
+
+\section{Inequality-Constrained Problems}
+Inequality-constrained quadratic programs are QPs which consists of inequality constraints and may or may not consist equality constraints. Several classes of algorithms for solving convex quadratic programs containing inequality and equality constraints are available. Active-set method and Interior-point are most famous for their accuracy and capability to solve large problems.
+
+\subsection{Properties of Inequality-constrained problems}
+\subsubsection*{Optimality condition for inequality-constrained problems}
+Lagrangian for the problem \ref{eqn:quadratic_programming} is:
+\begin{equation}
+	\begin{aligned}
+		\mathcal{L}(x,\lambda ) = \frac{1}{2}x^TGx + x^Tc-\sum_{i\in \mathcal{I}\cup \varepsilon} \lambda_i(a_i^Tx-b_i)
+	\end{aligned}
+	\label{eqn:Lagrangian_for_QP_1}
+\end{equation}
+
+The active set $\mathcal{A}(x^*)$ consists of indices of the constraints for which equality holds at $x^*$:
+\begin{equation}
+	\begin{aligned}
+		\mathcal{A}(x^*) = \lbrace i\in \varepsilon \cup \mathcal{I}\mid a_i^Tx^* = b_i \rbrace
+	\end{aligned}
+\end{equation}
+
+According to the KKT condition for this problem, it is found that any solution $x^*$ for some Lagrange multipliers $\lambda_i^*, i\in \mathcal{A}(x^*)$ of \ref{eqn:quadratic_programming} satisfies the following conditions:
+\begin{equation}
+	\begin{aligned}
+		Gx^*+c-\sum_{i\in \mathcal{A}(x^*)} \lambda_i^*a_i &= 0\\
+		a_i^Tx^* &= b_i & & \text{for all }i\in \mathcal{A}(x^*),\\
+		a_i^Tx^* &\geqslant b_i & & \text{for all }i\in \mathcal{I} \slash \mathcal{A}(x^*),\\
+		\lambda_i^* &\geqslant 0 , & & \text{for all }i\in \mathcal{I} \cap \mathcal{A}(x^*),\\
+	\end{aligned}
+	\label{eqn:KKT_condition_for_convex_QP}
+\end{equation}
+
+Incase of convex QP, that is when $G$ is positive semidefinite, \ref{eqn:KKT_condition_for_convex_QP} are sufficient for $x^*$ to be a global solution.
+
+\begin{mybox}{Theorem}
+\begin{theorem}
+	If $x^*$ satisfies the conditions \ref{eqn:KKT_condition_for_convex_QP} for some $\lambda_i^*,i \in \mathcal{A}(x^*)$, and $G$ is positive semidefinite, then $x^*$ is a global solution of \ref{eqn:quadratic_programming}.
+\end{theorem}
+\end{mybox}
+
+\subsubsection*{Degeneracy}
+Degeneracy initiates difficulties for some optimisation algorithm. It appears in the following situation:
+\begin{itemize}
+	\item the active constraint gradients $a_i,i\in \mathcal{A}(x^*)$, are linearly dependent at the solution $x^*$, and/or
+	\item there is some index $i\in \mathcal{A}(x^*)$ such that all Lagrange multipliers satifying KKT conditions have $\lambda_i^* = 0$
+	
+	\begin{figure}[h]
+		\centering
+			\includegraphics{Figures/Degeneracy_1.png}
+			\decoRule
+			\caption[hypercube]{3-dimensional hypermatrix(cube).}
+		\label{fig:hypercube}
+	\end{figure}
+
+\end{itemize}
+
+
+
+
 
 
 
