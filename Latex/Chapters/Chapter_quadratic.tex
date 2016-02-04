@@ -50,7 +50,7 @@ logarithmic barrier for the inequalities $Ax\leqslant b$:
 \end{equation*}
 \begin{figure}[h]
 \centering
-\includegraphics{Figures/logarithmic_barrier.png}
+\includegraphics[scale=0.5]{Figures/logarithmic_barrier.png}
 \decoRule
 \caption[hypercube]{Logarithmic barrier function.}
 \label{fig:logarithmic_barrier}
@@ -429,16 +429,26 @@ Degeneracy initiates difficulties for some optimisation algorithm. It appears in
 	
 	\begin{figure}[h]
 		\centering
-			\includegraphics{Figures/Degeneracy_1.png}
+			\includegraphics[scale=0.5]{Figures/Degeneracy_2.png}
 			\decoRule
-			\caption[hypercube]{3-dimensional hypermatrix(cube).}
-		\label{fig:hypercube}
+			\caption[hypercube]{Nonconvex quadratic programs.}
+		\label{fig:Degeneracy_1}
 	\end{figure}
-
+	\begin{figure}[h]
+		\centering
+			\includegraphics[scale=0.5]{Figures/Degeneracy_1.png}
+			\decoRule
+			\caption[hypercube]{Degenerate solutions of quadratic programs.}
+		\label{fig:Degeneracy_2}
+	\end{figure}
 \end{itemize}
+In the figure \ref{fig:Degeneracy_2} two instances are visualized. There is only a single active constraint at the solution $x^*$ in the left picture, that is lso an unconstrained minimizer of the objective function. According to KKT condition, $Gx^*+c=0$, such that the lone Lagrange multiplier should be zero.  3 constraints are active at the solution $x^*$ in the right-side image. As each of the three constraint gradients is a a vector in $\mathbb{R}^2$, they should be linearly independent.
 
-
-
+Specifically for two reason Degeneracy can cause problems for optimization algorithms,
+\begin{itemize}
+	\item First linear dependence of the active constraint gradients can cause numerical difficulties as several matrices which required to factor become rank deficient.
+	\item Second when the problem contains weakly active constraints, it is difficult for the algorithm to determine whether these constraints are active at the solution.
+\end{itemize} 
 
 
 

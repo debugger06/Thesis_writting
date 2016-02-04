@@ -49,6 +49,8 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 
@@ -58,7 +60,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 
 
 
-
+\usepackage[options ]{algorithm2e}
 \usepackage[many]{tcolorbox}
 \usepackage{lipsum}
 \usepackage{varwidth}
@@ -274,9 +276,9 @@ $\omega$ & angular frequency & \si{\radian} \\
 % Uncomment the lines as you write the chapters
 
 \input{Chapters/Chapter0}
-\input{Chapters/Chapter1}
-\input{Chapters/Chapter2}
-%\input{Chapters/Chapter3}
+\input{Chapters/Chapter_birkhoff}
+\input{Chapters/Chapter_quadratic}
+\input{Chapters/Chapter_cholesky}
 %\input{Chapters/Chapter4} 
 %\input{Chapters/Chapter5} 
 

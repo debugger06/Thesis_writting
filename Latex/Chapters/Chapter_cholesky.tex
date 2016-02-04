@@ -1,0 +1,149 @@
+% Chapter Template
+
+\chapter{Cholesky Factorization} % Main chapter title
+
+\label{ChapterX} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+Cholesky factorization is an important term in the feld of linear algebra. It is the process of decomposing a Hermitian, positive-definite matrix into product of a lower and upper triangular matrix and its conjygate transpose. Which is useful for numerical optimization and Monte Carlo simulation. It was named after the name the name of its discoverer Andre-Louis Cholesky. It is believed that cholesky decomposition is almost twice as efficient as the LU decomposition. for solving system of linear equation.
+
+\section{Definition and Existance}
+The Cholesky factorization is only defined for symmetric or Hermitian positive definite matrices.
+\begin{definition}
+A matrix $A\in \mathbb{R}^{m\times m}$ is symmetric positive definite (SPD) if and only if it is symmetric $(A^T=A)$ and for all nonzero vectors $x\in \mathbb{R}^m$ it is the case that $x^TAx>0$.	
+\end{definition}
+
+\begin{mybox}{Theorem}
+\begin{theorem}
+	Given a SPD matrix $A$ there exist a lower triangular matrix $L$ such that $A=LL^T$.
+\end{theorem}
+\end{mybox}
+The lower triangular matrix $L$ is known as the Cholesky factor and $LL^T$ is known as the Cholesky factorization of $A$. It is unique if the diagonal elements of $L$ are restricted to be positive.
+
+The converse holds trivially: if $A$ can be written as $LL^*$ for some invertible $L$, lower triangular or otherwise, then $A$ is Hermitian and positive definite.
+\section{LDL decomposition}
+Although the focus of this chapter is Cholesky factorization, it is worth to make an understanding about a closely related variant of the Cholesky factorization, the LDL decomposition.
+
+It is represented as,
+
+\begin{equation*}
+	A = LDL^*
+\end{equation*}
+where $L$ is a lower triangular matrix and D is a diagonal matrix.LDL decomposition relates to Cholesky decomposition by the following way
+\begin{equation*}
+	\begin{aligned}
+		A=LDL^*=LD^{\frac{1}{2}}D^{\frac{1}{2}*}L^*=LD^{\frac{1}{2}}(LD^{\frac{1}{2}})^*
+	\end{aligned}
+\end{equation*}
+
+When LDL is efficiently implemented, it takes the same space and complexity to build and use. LDL method method is used for those cases where no Cholesky decomposition possible.
+
+\section{Application of Choleskey Factorization}
+The Cholesky decomposition is mostly used when numerical solution of linear equations $Ax = b$ is required. When $A$ is symmetric and positive definite, it is possible to solve $Ax = b$ by first computing the Cholesky decomposition $A = LL^*$, then solving $Ly = b$ for $y$ by forward substitution, and finally solving $L*x = y$ for $x$ by back substitution.
+
+The Cholesky decomposition helps to achieve superior efficiency and numerical stability. Compared to the $LU$ decomposition, this can perform almost two times efficiently.
+\subsubsection*{Linear least squares}
+Systems of the form $Ax = b$ with $A$ symmetric and positive definite arise quite often in applications. For instance, the normal equations in linear least squares problems are of this form. It may also happen that matrix $A$ comes from an energy functional which must be positive from physical considerations; this happens frequently in the numerical solution of partial differential equations.
+\subsubsection*{Non-linear optimization}
+Non-linear multi-variate functions may be minimized over their parameters using variants of Newton's method called quasi-Newton methods. At each iteration, the search takes a step s defined by solving $Hs = -g$ for $s$, where $s$ is the step, $g$ is the gradient vector of the function's partial first derivatives with respect to the parameters, and $H$ is an approximation to the Hessian matrix of partial second derivatives formed by repeated rank 1 updates at each iteration. Two well-known update formulae are called Davidon–Fletcher–Powell (DFP) and Broyden–Fletcher–Goldfarb–Shanno (BFGS). Loss of the positive-definite condition through round-off error is avoided if rather than updating an approximation to the inverse of the Hessian, one updates the Cholesky decomposition of an approximation of the Hessian matrix itself.
+
+\subsubsection*{Monte Carlo simulation}
+The Cholesky decomposition is commonly used in the Monte Carlo method for simulating systems with multiple correlated variables: The correlation matrix is decomposed, to give the lower-triangular $L$. Applying this to a vector of uncorrelated samples, $u$, produces a sample vector $Lu$ with the covariance properties of the system being modeled.
+
+For a simplified example that shows the economy one gets from Cholesky's decomposition, say one needs to generate two correlated normal variables $x_1$ and $x_2$. All one needs to do is to generate two uncorrelated Gaussian random variables $z_1$ and $z_2$. We set $x_1=z_1$ and $x_2 = \rho z_1 + \sqrt{1-\rho ^2 z_2}$.
+
+\subsubsection*{Matrix inversion}
+The explicit inverse of a Hermitian matrix can be computed via Cholesky decomposition, in a manner similar to solving linear systems, using $\textstyle{n^3}$ operations ($\textstyle\frac{1}{2}n^3$ multiplications). The entire inversion can even be efficiently performed in-place.
+
+A non-Hermitian matrix $B$ can also be inverted using the following identity, where $BB^*$ will always be Hermitian:
+\begin{equation*}
+\mathbf{B}^{-1} = \mathbf{B}^{*} \mathbf{(B B ^ {*})}^{-1}.	
+\end{equation*}
+
+\section{The Cholesky algorithm}
+Most usual algorithm for Cholesky factorization $chol(A)$ can be derived as: (\textit{Greek lowercase letters refers to scalars, lower case letter referes to vector and uppercase letters referes to matrices}). Partition
+\begin{equation*}
+\begin{aligned}
+	A=
+	\left(\begin{array}{c|c}\alpha_{11}  & \star \\ \hlinea_{21} & A_{22}\end{array}
+\right)
+& &
+\text{ and }
+L=
+\left(\begin{array}{c|c}\lambda_{11}  & 0 \\ \hline\lambda_{21} & L_{22}\end{array}\right).	
+\end{aligned}
+\end{equation*}
+
+By substituting these partitioned matrices into $A=LL^T$, it is found that:
+
+\begin{equation*}
+\left(\begin{array}{c|c}\alpha_{11}  & \star \\ \hlinea_{21} & A_{22}\end{array}
+\right)
+=
+\left(\begin{array}{c|c}\lambda_{11}  & 0 \\ \hline\lambda_{21} & L_{22}\end{array}\right)
+\left(\begin{array}{c|c}\lambda_{11}  & 0 \\ \hline\lambda_{21} & L_{22}\end{array}
+\right)^T
+=
+\left(\begin{array}{c|c}\lambda_{11}^2  & \star \\ \hline\lambda_{11}l_{21} & l_{21}l_{21}^T+L_{22}L_{22}^T\end{array}
+\right)
+\end{equation*}
+
+so that
+\begin{equation*}
+	\left(\begin{array}{c|c}\alpha_{11}=\lambda_{11}^2  & \star \\ \hlinea_{21} = \lambda_{11}l_{21} & A_{22}=l_{21}l_{21}^T+L_{22}L_{22}^T\end{array}
+\right)
+\end{equation*}
+and hence
+\begin{equation*}
+	\left(\begin{array}{c|c}\lambda_{11} = \sqrt{\alpha_{11}}  & \star \\ \hlinel_{21} = a_{21}/\lambda_{11} & L_{22} = chol(A_{22}-l_{21}l_{21}^T)\end{array}
+\right)
+\end{equation*}
+These equalities directs to the algorithm
+\begin{enumerate}
+	\item Partition $A \gets
+	\left(\begin{array}{c|c}\alpha_{11}  & \star \\ \hlinea_{21} & A_{22}\end{array}
+\right)$
+	\item Overwrite $\alpha_{11}:=\lambda_{11} = \sqrt{\alpha_{11}}$
+	\item Overwrite $a_{21} :=l_21 = a_{21}/\lambda_11$.
+	\item Overwrite $A_{22}:=A_{22}-l_{21}l_{21}^T$ (updating lower triangular part of $A_22$)
+	\item Continue with $A=A_{22}$
+\end{enumerate}
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwResult{Write here the result }
+ initialization\;
+ \While{While condition}{
+  instructions\;
+  \eIf{condition}{
+   instructions1\;
+   instructions2\;
+   }{
+   instructions3\;
+  }
+ }
+ \caption{How to write algorithms}
+\end{algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
