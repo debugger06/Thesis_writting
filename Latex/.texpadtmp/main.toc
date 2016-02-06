@@ -51,11 +51,12 @@
 \contentsline {section}{\numberline {3.6}Inequality-Constrained Problems}{21}{section.97}
 \contentsline {subsection}{\numberline {3.6.1}Properties of Inequality-constrained problems}{21}{subsection.98}
 \contentsline {section}{\numberline {3.7}Active-set Methods for Convex QPs}{23}{section.107}
-\contentsline {section}{\numberline {3.8}Interior-Point Method}{28}{section.118}
-\contentsline {chapter}{\numberline {4}Cholesky Factorization}{37}{chapter.125}
-\contentsline {section}{\numberline {4.1}Definition and Existance}{40}{section.126}
-\contentsline {section}{\numberline {4.2}LDL decomposition}{43}{section.129}
-\contentsline {section}{\numberline {4.3}Application of Choleskey Factorization}{47}{section.130}
-\contentsline {section}{\numberline {4.4}The Cholesky algorithm}{61}{section.135}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{65}{appendix.141}
-\contentsline {chapter}{Bibliography}{67}{appendix*.142}
+\contentsline {section}{\numberline {3.8}Interior-Point Method}{26}{section.118}
+\contentsline {chapter}{\numberline {4}Cholesky Factorization}{29}{chapter.125}
+\contentsline {section}{\numberline {4.1}Definition and Existance}{29}{section.126}
+\contentsline {section}{\numberline {4.2}LDL decomposition}{29}{section.129}
+\contentsline {section}{\numberline {4.3}Application of Choleskey Factorization}{30}{section.130}
+\contentsline {section}{\numberline {4.4}The Cholesky algorithm}{31}{section.135}
+\contentsline {section}{\numberline {4.5}Sparse Cholesky Factorization Algorithm}{33}{section.143}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{35}{appendix.144}
+\contentsline {chapter}{Bibliography}{37}{appendix*.145}

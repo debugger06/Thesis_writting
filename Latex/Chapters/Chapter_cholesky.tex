@@ -101,31 +101,144 @@ and hence
 \right)
 \end{equation*}
 These equalities directs to the algorithm
-\begin{enumerate}
-	\item Partition $A \gets
+\begin{algorithm}[h]
+  \caption{Cholesky factorization}\label{euclid}
+  \begin{algorithmic}[1]
+    \Procedure{Cholesky}{$A$}
+     \State Partition $A \gets
 	\left(\begin{array}{c|c}\alpha_{11}  & \star \\ \hlinea_{21} & A_{22}\end{array}
 \right)$
-	\item Overwrite $\alpha_{11}:=\lambda_{11} = \sqrt{\alpha_{11}}$
-	\item Overwrite $a_{21} :=l_21 = a_{21}/\lambda_11$.
-	\item Overwrite $A_{22}:=A_{22}-l_{21}l_{21}^T$ (updating lower triangular part of $A_22$)
-	\item Continue with $A=A_{22}$
-\end{enumerate}
-
-\begin{algorithm}[H]
-\SetAlgoLined
-\KwResult{Write here the result }
- initialization\;
- \While{While condition}{
-  instructions\;
-  \eIf{condition}{
-   instructions1\;
-   instructions2\;
-   }{
-   instructions3\;
-  }
- }
- \caption{How to write algorithms}
+	\State Overwrite $\alpha_{11}:=\lambda_{11} = \sqrt{\alpha_{11}}$
+	\State Overwrite $a_{21} :=l_21 = a_{21}/\lambda_11$.
+	\State Overwrite $A_{22}:=A_{22}-l_{21}l_{21}^T$ (updating lower triangular part of $A_22$)
+	\State Continue with $A=A_{22}$
+    \EndProcedure
+  \end{algorithmic}
 \end{algorithm}
+
+\subsection*{Blocked Variant}
+The elements of the factorization can grow arbitrarily. So to achieve high performance, the computation is cast in terms of matrix-matrix multiplication by blocked algorithms. The blocked version of the Cholesky algorithm can be derived by partitioning
+
+\begin{equation*}
+\begin{aligned}
+	A=
+	\left(\begin{array}{c|c}A_{11}  & \star \\ \hlineA_{21} & A_{22}\end{array}
+\right)
+& &
+\text{ and }
+L=
+\left(\begin{array}{c|c}L_{11}  & 0 \\ \hlineL_{21} & L_{22}\end{array}\right).	
+\end{aligned}
+\end{equation*}
+where $A$ and $L$ are $n_b\times n_b$ sized matrix($n_b$ block size). by substituting these into $A=LL^T$,
+\begin{equation*}
+\left(\begin{array}{c|c}A_{11}  & \star \\ \hlineA_{21} & A_{22}\end{array}
+\right)
+=
+\left(\begin{array}{c|c}L_{11}  & 0 \\ \hlineL_{21} & L_{22}\end{array}\right)
+\left(\begin{array}{c|c}L_{11}  & 0 \\ \hlineL_{21} & L_{22}\end{array}
+\right)^T
+=
+\left(\begin{array}{c|c}L_{11}L_{11}^T  & \star \\ \hlineL_{21}L_{11}^T & L_{21}L_{21}^T+L_{22}L_{22}^T\end{array}
+\right)
+\end{equation*}
+And at the end
+\begin{equation*}
+	\left(\begin{array}{c|c}L_{11} = cholesky({A_{11}})  & \star \\ \hlineL_{21} = A_{21}L_{11}^{-T} & L_{22} = cholesky(A_{22}-L_{21}L_{21}^T)\end{array}
+\right)
+\end{equation*}
+So blocked variant algorithm can be described as:
+
+
+
+\begin{algorithm}[h]
+  \caption{Cholesky factorization}\label{cholesky_blk}
+  \begin{algorithmic}[1]
+    \Procedure{CholeskyBLK}{$A$}
+     \State Partition $A \gets
+	\left(\begin{array}{c|c}A_{11}  & \star \\ \hlineA_{21} & A_{22}\end{array}
+\right)$
+	\State Overwrite $A_{11}:=L_{11} = CholeskyBLK({A_{11}})$
+	\State Overwrite $A_{21} :=L_21 = A_{21}L_{11}^T$.
+	\State Overwrite $A_{22}:=A_{22}-L_{21}L_{21}^T$ (updating lower triangular part of $A_22$)
+	\State Continue with $A=A_{22}$
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
+\subsection*{Updating the decomposition}
+More often the task of updating Cholesky decomposition arises. More descriptively, at some point Cholesky decomposition $A=LL^*$ of some matrix $A$ has been computed, then a change on matrix $A$ has been made to produce matrix $\hat{A}$, and now it is required to compute the Cholesky decomposition of the new matrix: $\hat{A}=\hat{L}\hat{L}^*$. Now question arises if it is possible to reuse the Cholesky decomposition of $A$ which already has been computed to compute the Cholesky decomposition of $\hat{A}$
+\subsubsection*{Rank-one update}
+The situation where the updated matrix $\hat{A}$ is produced from matrix $A$ by $\hat{A}=A+xx^*$ is refers to rank-one update. 
+\begin{algorithm}[h]
+  \caption{Rank-one update}\label{cholesky_rank_update}
+  \begin{algorithmic}[1]
+    \Procedure{Choleskyrankupdate}{$L,x$}
+     \State $n\gets length(x)$
+     \For{$k=1:n$}
+     	\State $r\gets L(power(L(k,k),2)+power(x(k),2))$
+     	\State $c\gets r/L(k,k)$
+     	\State $s\gets x(k)/L(k,k)$
+     	\State $L(k,k)\gets r$
+     	\State $L(K+1:n,k)\gets (L(k+1:n,k)+s*x(k+1:n))/c$
+     	\State $x(k+1:n) \gets c*x(k+1:n) - s*L(k+1:n,k)$
+     \EndFor    
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
+\subsection*{Cost}
+The cost of the cholesky factorization of $A\in \mathbb{R}^{m\times m}$ can be calculated from steps:
+\begin{itemize}
+	\item $\alpha := \sqrt{\alpha_{11}}$ negligible when k is large.
+	\item $a_21 := a_{21}/\alpha_{11}$ approx. $(m-k-1)$ flops.
+	\item $A_{22}:=A_{22}-triangular(a_{21}a_{21}^T)$: approx. $(m-k-1)^2$ flops
+\end{itemize}
+So,the total cost in form of flops is:
+\begin{equation*}
+	\begin{aligned}
+		Cost_{Cholesky}(m) &\approx \underbrace{\sum_{k=0}^{m-1}{(m-k-1)^2} }_\textrm{Due to update of $A_{22}$} + \underbrace{\sum_{k=0}^{m-1}{(m-k-1)}}_\textrm{Due to update of$a_{21}$}\\
+		&=\sum_{j=0}^{m-1}{j^2}+\sum_{j=0}^{m-1}{j}\\
+		&\approx \frac{1}{3}m^3+\frac{1}{2}m^2\\
+		&\approx \frac{1}{3}m^3
+	\end{aligned}
+\end{equation*}
+It can be realised that, most computation cost is in update of $A_{22}$
+
+
+\section{Sparse Cholesky Factorization Algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

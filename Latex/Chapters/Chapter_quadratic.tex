@@ -577,7 +577,6 @@ So it can be concluded that, When G is positive definite-the second order suffic
 
 \subsection*{Specification of the Active-set method for convex QP}
 The whole Active-set algorithm can be specified as following:
-
 \begin{algorithm}[h]
   \caption{Active-set method for convex QP}\label{euclid}
   \begin{algorithmic}[1]
@@ -608,6 +607,7 @@ The whole Active-set algorithm can be specified as following:
     \EndProcedure
   \end{algorithmic}
 \end{algorithm}
+
 To implement active-set method efficiently an important key is reuse of nformation from solving the equality-constrained subproblem at the next iteration. The only difference between two consecutive subproblems is that the working set grows or shrinks by a single component. Efficient codes perform updates of the matrix factorizations obtained at the previous iteration, rather than calculating them from scratch each time.
 
 
