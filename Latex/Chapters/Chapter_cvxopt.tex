@@ -1,0 +1,145 @@
+% Chapter Template
+
+\chapter{CVXOPT} % Main chapter title
+
+\label{ChapterX} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+In this chapter we will introduce you with CVXOPT library. This library is has implemented a lot of important methods which can be used to solve different optimization problems. In the first a general description about this library has been given, then short a description about its modules. At the end algorithm behind the CVXOPT quadratic cone solver has been described.
+  
+\section{A first view into CVXOPT library}
+
+CVXOPT is an opensource  library implemented using Python and C for convex optimization. This library can be installed as python package and can be used with interactive Python interpreter, integrate into software as Python extension module, or on the command line by executing python script. The goal of CVXOPT is to make software development straightforward where convex optimization is required by providing package using the power of python as Python's extensive standard library.
+
+
+\section{CVXOPT module structure}
+CVXOPT extends the default python matrix objects into \pyobject{matrix} for dense matrices and \pyobject{spmatrix} for sparse matrices. According to the CVXOPT manual, CVXOPT is organised into following different module:
+
+\subsubsection*{\pyobject{cvxopt.blas}}
+This is the interface to most of the double-precision real and complex  Basic Linear Algebra Subprograms. Operations performed using BLAS routines can be implemented as a form arithmatic operation which helps to achieve great simplicity. The main two advantage of BLAS interface over other python blas packages is that:
+\begin{itemize}
+	\item some functions are not just implementation of basic matrix arithmatic. For example, BLAS includes functions that efficiently exploit symmetry or triangular matrix structure.
+	\item BLAS module maintains performance difference with other libraries which is significant for large matrices.
+\end{itemize}
+
+
+\subsubsection*{\pyobject{cvxopt.lapack}}
+Interface to dense double-precission real and complex linear equation solvers and eigenvalue routines. This module includes methods for solving dense sets of linear equations, for the corresponding matrix factorizations, for sloving least-squares and least-norm problems, for QR factorization, for symmetric eigenvalue problems, singular value decomposition and Schur factorization.
+
+\subsubsection*{\pyobject{cvxopt.fftw}}
+Interface to the discrete transform routines from FFTW and contains routines for discrete Fourier, cosine, and sine transforms.
+
+\subsubsection*{\pyobject{cvxopt.amd}}
+Interface to the approximate minimum degree ordering routine from AMD.
+
+\subsubsection*{\pyobject{cvxopt.umfpack}}
+This module includes four functions for solving sparse non-symmetric sets of linear equations.
+\subsubsection*{\pyobject{cvxopt.cholmod}}
+It is an interface to the Cholesky factorization routines of the CHOLMOD package. It includes functions for Cholesky factorization of sparse positive definite matrices.
+
+\subsubsection*{\pyobject{cvxopt.solvers}}
+Convex optimization routines and optional interfaces to solvers from GLPK, MOSEK, and DSDP5 
+
+\subsubsection*{\pyobject{cvxopt.modeling}}
+Routines for specifying and solving linear programs and convex optimization problems with piecewise-linear cost and constraint functions
+
+\subsubsection*{\pyobject{cvxopt.printing}}
+Contains functions and parameters that control how matrices are formatted.
+
+\section{CVXOPT Cone Programming Interface}
+CVXOPT considers convex optimization problems as the following form:
+\begin{equation*}
+\begin{aligned}
+& \text{minimize}
+& & \frac{1}{2}x^{T}Px+q^{T}x \\
+& \text{subject to} & &  Gx \leqslant h\\
+& & &  Ax = b
+\end{aligned}
+\end{equation*}
+
+The linear inequality is a generalized inequality with respect to proper convex cone which may include componentwise vector inequalities, second-order cone inequalities, and linear matrix inequalities. The main solvers are \pyobject{conelp} and\pyobject{coneqp} which are used to optimize linear and quadratic cost functions and problems are required to be strictly primal and dual feasible. As the context of the thesis is Quadratic programming, quadratic programming method of \pyobject{coneqp} interface is focused here.
+
+\subsection{Quadratic Cone Programs}
+CVXOPT Quadratic cone program routine solves a pair of primal and dual quadratic cone programs:
+
+\begin{equation*}
+\begin{aligned}
+& \text{minimize}
+& & \frac{1}{2}x^{T}Px+q^{T}x \\
+& \text{subject to} & &  Gx + s = h\\
+& & &  Ax = b
+& & &  s\geqslant 0\\
+\end{aligned}
+\end{equation*}
+with P positive semidefinite. And corresponding dual problem is
+\begin{equation*}
+	\begin{aligned}
+		& \text{maximize}
+& & -(\frac{1}{2})(q+G^Tz+A^Ty)^{T}P^{\dagger}(q+G^Tz+A^Ty)-h^Tz-b^Ty\\
+& \text{subject to} & &  q+G^Tz+A^Ty \in \text{ range}(P)\\
+& & &  s\geqslant 0\\
+	\end{aligned}
+\end{equation*}
+
+x is the primal variable, s is the slack variable. $y$ and $z$ are dual variables. The inequalities are interpreted as $s\in C$,$z\in C$, were $C$ is a cone defined as a cartesian product of a nonnegative orthant, a number of second-order cones, and a number f positive semidefinite cones:
+\begin{equation*}
+	\begin{aligned}
+		C = C_0 \times C_1 \times ... \times C_M \times C_{M+1}\times ... \times C_{M+N}
+	\end{aligned}
+\end{equation*}
+with
+\begin{equation*}
+	\begin{aligned}
+		C_0 &= \lbrace u\in \mathbb{R}^l \mid u_k \geqslant 0, \text{ }k=1,...,l \rbrace,\\
+		C_{K+1} &= \lbrace (u_0,u_1) \in \mathbb{R}\times \mathbb{R}^{\tau_k-1} \mid u_0 \geqslant \| u_1\|_2 \rbrace , & k=0,...,M-1\\
+		C_{K+M+1} &=\lbrace \text{vec}(u) \mid u\in S_{\+}^{t_k}\rbrace, & & k=0,...,N-2.
+	\end{aligned}
+\end{equation*}
+
+According to CVXOPT, $vec(u)$ denotes a symmetric matrix $u$ stored as a vector in column major order.
+
+The CVXOPT typical \pyobject{coneqp} interface look like the following:
+
+\begin{lstlisting}
+cvxopt.solvers.coneqp(P,q[,G,h[,dims[,A,b[,initvals[,kktsolver]]]]])	
+\end{lstlisting}
+
+\pyobject{P} is a square dense or sparse real matrix, \pyobject{q} is a single-column dense real matrix. \pyobject{h} and \pyobject{b} are real single-column dense matrices. \pyobject{G} and \pyobject{A} are real dense or sparse matrices. The default value of \pyobject{G}, \pyobject{h},\pyobject{A} and \pyobject{b} are metrices with zero rows, meaning that there are no inequalities or equality constraints. It is possible to provide custom solver to solve linear equation (KKT equations). \pyobject{coneqp} returns a dictionary that which contains the result and accuracy of the solution.
+
+\subsection*{CVXOPT quadratic cone solver algorithm}
+
+The algorithm implemented in the \pyobject{coneqp} solver is primal-dual path-following method based on Nesterov-Todd scaling. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

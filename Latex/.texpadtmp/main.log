@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.24)  7 FEB 2016 15:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.24)  9 FEB 2016 01:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1197,55 +1197,82 @@ Normal \count register pool exhausted, switching to extended pool.
 \ALG@tmplength=\skip77
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count279
+\lst@gtempboxa=\box78
+\lst@token=\toks48
+\lst@length=\count280
+\lst@currlwidth=\dimen296
+\lst@column=\count281
+\lst@pos=\count282
+\lst@lostspace=\dimen297
+\lst@width=\dimen298
+\lst@newlines=\count283
+\lst@lineno=\count284
+\lst@maxwidth=\dimen299
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count285
+\lst@skipnumbers=\count286
+\lst@framebox=\box79
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package scrhack Info: loading listings hack on input line 47.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/koma-script/listings.hak
+File: listings.hak 2013/12/19 v3.12 KOMA-Script package (hacking package listings)
+Package tocbasic Info: setting babel extension for `lol' on input line 137.
+Package scrhack Info: redefining \lstlistoflistings on input line 137.
 )
-\c@theorem=\count279
-\c@corollary=\count280
-\c@definition=\count281
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+\c@theorem=\count287
+\c@corollary=\count288
+\c@definition=\count289
  (/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2013/11/25 v2.8a programmable bibliographies (PK/JW/AB)
  (/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/biblatex1.sty
 Package: biblatex1 2013/11/25 v2.8a programmable bibliographies (bibtex) (PK/JW/AB)
  (/usr/local/texlive/2014/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count282
+\lrq@indent=\count290
  (/usr/local/texlive/2014/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count283
-\c@listtotal=\count284
-\c@listcount=\count285
-\c@liststart=\count286
-\c@liststop=\count287
-\c@citecount=\count288
-\c@citetotal=\count289
-\c@multicitecount=\count290
-\c@multicitetotal=\count291
-\c@instcount=\count292
-\c@maxnames=\count293
-\c@minnames=\count294
-\c@maxitems=\count295
-\c@minitems=\count296
-\c@citecounter=\count297
-\c@savedcitecounter=\count298
-\c@uniquelist=\count299
-\c@uniquename=\count300
-\c@refsection=\count301
-\c@refsegment=\count302
-\c@maxextrayear=\count303
-\c@maxextraalpha=\count304
-\c@abbrvpenalty=\count305
-\c@highnamepenalty=\count306
-\c@lownamepenalty=\count307
-\c@maxparens=\count308
-\c@parenlevel=\count309
-\blx@tempcnta=\count310
-\blx@tempcntb=\count311
-\blx@tempcntc=\count312
-\blx@maxsection=\count313
-\blx@maxsegment=\count314
-\blx@notetype=\count315
-\blx@parenlevel@text=\count316
-\blx@parenlevel@foot=\count317
+\c@tabx@nest=\count291
+\c@listtotal=\count292
+\c@listcount=\count293
+\c@liststart=\count294
+\c@liststop=\count295
+\c@citecount=\count296
+\c@citetotal=\count297
+\c@multicitecount=\count298
+\c@multicitetotal=\count299
+\c@instcount=\count300
+\c@maxnames=\count301
+\c@minnames=\count302
+\c@maxitems=\count303
+\c@minitems=\count304
+\c@citecounter=\count305
+\c@savedcitecounter=\count306
+\c@uniquelist=\count307
+\c@uniquename=\count308
+\c@refsection=\count309
+\c@refsegment=\count310
+\c@maxextrayear=\count311
+\c@maxextraalpha=\count312
+\c@abbrvpenalty=\count313
+\c@highnamepenalty=\count314
+\c@lownamepenalty=\count315
+\c@maxparens=\count316
+\c@parenlevel=\count317
+\blx@tempcnta=\count318
+\blx@tempcntb=\count319
+\blx@tempcntc=\count320
+\blx@maxsection=\count321
+\blx@maxsegment=\count322
+\blx@notetype=\count323
+\blx@parenlevel@text=\count324
+\blx@parenlevel@foot=\count325
 \labelnumberwidth=\skip78
 \labelalphawidth=\skip79
 \shorthandwidth=\skip80
@@ -1257,75 +1284,75 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip86
 \blx@auxin=\read4
 \blx@auxout=\write5
-\c@mincomprange=\count318
-\c@maxcomprange=\count319
-\c@mincompwidth=\count320
-\c@labelname=\count321
-\c@savedlabelname=\count322
-\c@author=\count323
-\c@savedauthor=\count324
-\c@shortauthor=\count325
-\c@savedshortauthor=\count326
-\c@editor=\count327
-\c@savededitor=\count328
-\c@editora=\count329
-\c@savededitora=\count330
-\c@editorb=\count331
-\c@savededitorb=\count332
-\c@editorc=\count333
-\c@savededitorc=\count334
-\c@shorteditor=\count335
-\c@savedshorteditor=\count336
-\c@bookauthor=\count337
-\c@savedbookauthor=\count338
-\c@translator=\count339
-\c@savedtranslator=\count340
-\c@annotator=\count341
-\c@savedannotator=\count342
-\c@commentator=\count343
-\c@savedcommentator=\count344
-\c@introduction=\count345
-\c@savedintroduction=\count346
-\c@foreword=\count347
-\c@savedforeword=\count348
-\c@afterword=\count349
-\c@savedafterword=\count350
-\c@holder=\count351
-\c@savedholder=\count352
-\c@namea=\count353
-\c@savednamea=\count354
-\c@nameb=\count355
-\c@savednameb=\count356
-\c@namec=\count357
-\c@savednamec=\count358
-\c@institution=\count359
-\c@savedinstitution=\count360
-\c@language=\count361
-\c@savedlanguage=\count362
-\c@location=\count363
-\c@savedlocation=\count364
-\c@organization=\count365
-\c@savedorganization=\count366
-\c@origlocation=\count367
-\c@savedoriglocation=\count368
-\c@origpublisher=\count369
-\c@savedorigpublisher=\count370
-\c@pageref=\count371
-\c@savedpageref=\count372
-\c@publisher=\count373
-\c@savedpublisher=\count374
-\c@lista=\count375
-\c@savedlista=\count376
-\c@listb=\count377
-\c@savedlistb=\count378
-\c@listc=\count379
-\c@savedlistc=\count380
-\c@listd=\count381
-\c@savedlistd=\count382
-\c@liste=\count383
-\c@savedliste=\count384
-\c@listf=\count385
-\c@savedlistf=\count386
+\c@mincomprange=\count326
+\c@maxcomprange=\count327
+\c@mincompwidth=\count328
+\c@labelname=\count329
+\c@savedlabelname=\count330
+\c@author=\count331
+\c@savedauthor=\count332
+\c@shortauthor=\count333
+\c@savedshortauthor=\count334
+\c@editor=\count335
+\c@savededitor=\count336
+\c@editora=\count337
+\c@savededitora=\count338
+\c@editorb=\count339
+\c@savededitorb=\count340
+\c@editorc=\count341
+\c@savededitorc=\count342
+\c@shorteditor=\count343
+\c@savedshorteditor=\count344
+\c@bookauthor=\count345
+\c@savedbookauthor=\count346
+\c@translator=\count347
+\c@savedtranslator=\count348
+\c@annotator=\count349
+\c@savedannotator=\count350
+\c@commentator=\count351
+\c@savedcommentator=\count352
+\c@introduction=\count353
+\c@savedintroduction=\count354
+\c@foreword=\count355
+\c@savedforeword=\count356
+\c@afterword=\count357
+\c@savedafterword=\count358
+\c@holder=\count359
+\c@savedholder=\count360
+\c@namea=\count361
+\c@savednamea=\count362
+\c@nameb=\count363
+\c@savednameb=\count364
+\c@namec=\count365
+\c@savednamec=\count366
+\c@institution=\count367
+\c@savedinstitution=\count368
+\c@language=\count369
+\c@savedlanguage=\count370
+\c@location=\count371
+\c@savedlocation=\count372
+\c@organization=\count373
+\c@savedorganization=\count374
+\c@origlocation=\count375
+\c@savedoriglocation=\count376
+\c@origpublisher=\count377
+\c@savedorigpublisher=\count378
+\c@pageref=\count379
+\c@savedpageref=\count380
+\c@publisher=\count381
+\c@savedpublisher=\count382
+\c@lista=\count383
+\c@savedlista=\count384
+\c@listb=\count385
+\c@savedlistb=\count386
+\c@listc=\count387
+\c@savedlistc=\count388
+\c@listd=\count389
+\c@savedlistd=\count390
+\c@liste=\count391
+\c@savedliste=\count392
+\c@listf=\count393
+\c@savedlistf=\count394
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/blx-compat.def
@@ -1335,13 +1362,13 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 
-\c@textcitecount=\count387
-\c@textcitetotal=\count388
-\c@textcitemaxnames=\count389
-\c@biburlnumpenalty=\count390
-\c@biburlucpenalty=\count391
-\c@biburllcpenalty=\count392
-\c@smartand=\count393
+\c@textcitecount=\count395
+\c@textcitetotal=\count396
+\c@textcitemaxnames=\count397
+\c@biburlnumpenalty=\count398
+\c@biburlucpenalty=\count399
+\c@biburllcpenalty=\count400
+\c@smartand=\count401
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -1356,8 +1383,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2013/11/25 v2.8a biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count394
-\c@bbx:relatedtotal=\count395
+\c@bbx:relatedcount=\count402
+\c@bbx:relatedtotal=\count403
 ))
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
@@ -1377,13 +1404,13 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 File: biblatex.cfg 
 ))) (/usr/local/texlive/2014/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
-\csq@reset=\count396
-\csq@gtype=\count397
-\csq@glevel=\count398
-\csq@qlevel=\count399
-\csq@maxlvl=\count400
-\csq@tshold=\count401
-\csq@ltx@everypar=\toks48
+\csq@reset=\count404
+\csq@gtype=\count405
+\csq@glevel=\count406
+\csq@qlevel=\count407
+\csq@maxlvl=\count408
+\csq@tshold=\count409
+\csq@ltx@everypar=\toks49
  (/usr/local/texlive/2014/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
 )
@@ -1393,15 +1420,28 @@ Package csquotes Info: ... configuration file loaded successfully.
 File: csquotes.cfg 
 )
 Package csquotes Info: Enabling multilingual quotes.
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box80
+\shadowsize=\dimen300
+\@Sbox=\box81
+\do@VerbBox=\toks50
+\the@fancyput=\toks51
+\this@fancyput=\toks52
+\EndVerbatimTokens=\toks53
+\Verbatim@Outfile=\write6
+\Verbatim@Infile=\read5
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count402
+\c@lips@count=\count410
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box78
-\sift@deathcycles=\count403
-\@vwid@loff=\dimen296
-\@vwid@roff=\dimen297
+\@vwid@box=\box82
+\sift@deathcycles=\count411
+\@vwid@loff=\dimen301
+\@vwid@roff=\dimen302
 )
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
@@ -1429,26 +1469,29 @@ LaTeX Warning: Label `ChapterX' multiply defined.
 
 LaTeX Warning: Label `euclid' multiply defined.
 
+
+LaTeX Warning: Label `ChapterX' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 109.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -1531,17 +1574,17 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2013/07/31 v2.5s siunitx: Abbreviated units
 ) (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count404
-\scratchdimen=\dimen298
-\scratchbox=\box79
-\nofMPsegments=\count405
-\nofMParguments=\count406
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count407
-\MPscratchDim=\dimen299
-\MPnumerator=\count408
-\makeMPintoPDFobject=\count409
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count412
+\scratchdimen=\dimen303
+\scratchbox=\box83
+\nofMPsegments=\count413
+\nofMParguments=\count414
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count415
+\MPscratchDim=\dimen304
+\MPnumerator=\count416
+\makeMPintoPDFobject=\count417
+\everyMPtoPDFconversion=\toks55
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
  (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -1556,6 +1599,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -1592,31 +1636,33 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrbase Info: activating english \equationnamenname on input line 107.
-Package scrbase Info: activating english \sectionname on input line 107.
-Package scrbase Info: activating english \authorshipname on input line 107.
-Package scrbase Info: activating english \byname on input line 107.
-Package scrbase Info: activating english \abbrevname on input line 107.
-Package scrbase Info: activating english \constantsname on input line 107.
-Package scrbase Info: activating english \symbolsname on input line 107.
-Package scrbase Info: activating english \acknowledgementname on input line 107.
-\AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring ON on input line 107.
+Package scrbase Info: activating english \equationnamenname on input line 109.
+Package scrbase Info: activating english \sectionname on input line 109.
+Package scrbase Info: activating english \authorshipname on input line 109.
+Package scrbase Info: activating english \byname on input line 109.
+Package scrbase Info: activating english \abbrevname on input line 109.
+Package scrbase Info: activating english \constantsname on input line 109.
+Package scrbase Info: activating english \symbolsname on input line 109.
+Package scrbase Info: activating english \acknowledgementname on input line 109.
+\AtBeginShipoutBox=\box84
+Package hyperref Info: Link coloring ON on input line 109.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count410
+\c@section@level=\count418
 )
-LaTeX Info: Redefining \ref on input line 107.
-LaTeX Info: Redefining \pageref on input line 107.
-LaTeX Info: Redefining \nameref on input line 107.
+LaTeX Info: Redefining \ref on input line 109.
+LaTeX Info: Redefining \pageref on input line 109.
+LaTeX Info: Redefining \nameref on input line 109.
  (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.out) (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.out)
-\@outlinefile=\write6
-\openout6 = `main.out'.
+\@outlinefile=\write7
+\openout7 = `main.out'.
 
  ABD: EveryShipout initializing macros
+\c@lstlisting=\count419
+Package scrhack Info: undefining \float@addtolists on input line 109.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1630,20 +1676,20 @@ Package biblatex Warning: Data encoding is 'utf8'.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.bbl)
-Package biblatex Info: Reference section=0 on input line 107.
-Package biblatex Info: Reference segment=0 on input line 107.
-\c__siunitx_mathsf_int=\count411
-LaTeX Font Info:    Try loading font information for U+msa on input line 107.
+Package biblatex Info: Reference section=0 on input line 109.
+Package biblatex Info: Reference segment=0 on input line 109.
+\c__siunitx_mathsf_int=\count420
+LaTeX Font Info:    Try loading font information for U+msa on input line 109.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 107.
+LaTeX Font Info:    Try loading font information for U+msb on input line 109.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count412
+\c__siunitx_mathtt_int=\count421
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 124.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 126.
  [1
 
 
@@ -1654,14 +1700,14 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 161.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 163.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 161.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 163.
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
@@ -1674,7 +1720,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--167
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 192.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 194.
 [7] [8
 
 ]
@@ -1685,7 +1731,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 214.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 216.
  (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.toc
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 19.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1694,20 +1740,20 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 19.
  [11])
-\tf@toc=\write7
-\openout7 = `main.toc'.
+\tf@toc=\write8
+\openout8 = `main.toc'.
 
  [12] (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.lof)
-\tf@lof=\write8
-\openout8 = `main.lof'.
+\tf@lof=\write9
+\openout9 = `main.lof'.
 
  [13
 
 ] [14
 
 ] (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.lot)
-\tf@lot=\write9
-\openout9 = `main.lot'.
+\tf@lot=\write10
+\openout10 = `main.lot'.
 
  [15] [16
 
@@ -1749,7 +1795,7 @@ Overfull \hbox (9.16711pt too wide) in paragraph at lines 211--211
 []\T1/pcr/m/n/10 \caption{The effects of treatments X and Y on the four groups studied.}[] 
  []
 
-[7] <Figures/Electron.pdf, id=503, 398.3386pt x 284.52756pt>
+[7] <Figures/Electron.pdf, id=528, 398.3386pt x 284.52756pt>
 File: Figures/Electron.pdf Graphic file (type pdf)
  <use Figures/Electron.pdf>
 Package pdftex.def Info: Figures/Electron.pdf used on input line 262.
@@ -1759,7 +1805,7 @@ Chapter 2.
 --------------------
  2. The Birkhoff Polytope
 --------------------
-<Figures/hypercube.png, id=582, 259.97125pt x 229.85875pt>
+<Figures/hypercube.png, id=607, 259.97125pt x 229.85875pt>
 File: Figures/hypercube.png Graphic file (type png)
  <use Figures/hypercube.png>
 Package pdftex.def Info: Figures/hypercube.png used on input line 21.
@@ -1796,17 +1842,17 @@ Chapter 3.
 --------------------
 [15
 
-] <Figures/logarithmic_barrier.png, id=618, 303.1325pt x 255.95625pt>
+] <Figures/logarithmic_barrier.png, id=643, 303.1325pt x 255.95625pt>
 File: Figures/logarithmic_barrier.png Graphic file (type png)
  <use Figures/logarithmic_barrier.png>
 Package pdftex.def Info: Figures/logarithmic_barrier.png used on input line 53.
 (pdftex.def)             Requested size: 151.56587pt x 127.9778pt.
- [16 <./Figures/logarithmic_barrier.png>] [17] [18] [19] [20] [21] <Figures/Degeneracy_2.png, id=720, 602.25pt x 322.20375pt>
+ [16 <./Figures/logarithmic_barrier.png>] [17] [18] [19] [20] [21] <Figures/Degeneracy_2.png, id=745, 602.25pt x 322.20375pt>
 File: Figures/Degeneracy_2.png Graphic file (type png)
  <use Figures/Degeneracy_2.png>
 Package pdftex.def Info: Figures/Degeneracy_2.png used on input line 432.
 (pdftex.def)             Requested size: 301.12425pt x 161.10147pt.
- <Figures/Degeneracy_1.png, id=721, 593.21625pt x 305.14pt>
+ <Figures/Degeneracy_1.png, id=746, 593.21625pt x 305.14pt>
 File: Figures/Degeneracy_1.png Graphic file (type png)
  <use Figures/Degeneracy_1.png>
 Package pdftex.def Info: Figures/Degeneracy_1.png used on input line 439.
@@ -1838,21 +1884,38 @@ Chapter 4.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[32]) (./Appendices/AppendixA.tex [33] [34
+[32]) (./Chapters/Chapter_cvxopt.tex [33] [34
+
+]
+Chapter 5.
+--------------------
+ 5. CVXOPT
+--------------------
+
+Overfull \hbox (3.08337pt too wide) in paragraph at lines 29--30
+\T1/ppl/m/n/10.95 Interface to dense double-precission real and com-plex lin-ear equa-tion solvers and eigen-
+ []
+
+[35] [36]
+Overfull \hbox (29.93073pt too wide) in paragraph at lines 106--107
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./Appendices/AppendixA.tex [37] [38
 
 ]
 Appendix A.
 --------------------
  A. Appendix Title Here
 --------------------
-) [35] [36
+) [39] [40
 
-] [37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+] [41]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 308.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 308.
  (/Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 308.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 308.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1864,18 +1927,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39856 strings out of 493117
- 765863 string characters out of 6135433
- 1013693 words of memory out of 5000000
- 42491 multiletter control sequences out of 15000+600000
+ 41669 strings out of 493117
+ 789865 string characters out of 6135433
+ 1035803 words of memory out of 5000000
+ 44263 multiletter control sequences out of 15000+600000
  69635 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,97p,10377b,2247s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.pdf (61 pages, 511777 bytes).
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on /Users/vessilli/Desktop/Thesis/Thesis_writting/Latex/.texpadtmp/main.pdf (65 pages, 528390 bytes).
 PDF statistics:
- 958 PDF objects out of 1000 (max. 8388607)
- 846 compressed objects within 9 object streams
- 210 named destinations out of 1000 (max. 500000)
- 522 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1022 PDF objects out of 1200 (max. 8388607)
+ 904 compressed objects within 10 object streams
+ 230 named destinations out of 1000 (max. 500000)
+ 562 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -43,6 +43,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \usepackage{amsthm}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{listings}
 
 
 
@@ -59,7 +60,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
 
-
+\usepackage{xcolor,fancybox}
 \usepackage[many]{tcolorbox}
 \usepackage{lipsum}
 \usepackage{varwidth}
@@ -78,6 +79,7 @@ overlay unbroken and first ={
     \node[fill=red, text=white, rounded corners] at (frame.east) {$\clubsuit$};
     },
 title={#2},#1}
+\newcommand{\pyobject}[1]{\ovalbox{\color{red}{\texttt{#1}}}}
 
 
 
@@ -278,6 +280,7 @@ $\omega$ & angular frequency & \si{\radian} \\
 \input{Chapters/Chapter_birkhoff}
 \input{Chapters/Chapter_quadratic}
 \input{Chapters/Chapter_cholesky}
+\input{Chapters/Chapter_cvxopt}
 %\input{Chapters/Chapter4} 
 %\input{Chapters/Chapter5} 
 
