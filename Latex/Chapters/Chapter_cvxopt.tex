@@ -146,9 +146,9 @@ CVXOPT uses the following barrier function for $C$:
 		\phi(u)=\sum_{k=1}^{K}\phi_k(u_k), & \phi_k(u)=
 		\left\{
                 \begin{array}{ll}
-                  -\sum_{j=1}^{p} log u_j & C_k=R_{\+}^p \\
-                  -(1/2)log(u_0^2-u_1^Tu_1) & C_k=\mathcal{Q}_p \\
-                  -log{ det } mat(u) & C_k = \mathcal{S}_p
+                  -\sum_{j=1}^{p} \text{log } u_j & C_k=R_{\+}^p \\
+                  -(1/2)\text{log}(u_0^2-u_1^T u_1) & C_k=\mathcal{Q}_p \\
+                  -\text{log det \textbf{mat}}(u) & C_k = \mathcal{S}_p
                 \end{array}
               \right.
 	\end{aligned}
@@ -300,6 +300,162 @@ CVXOPT defines the current iterate by $(\hat{s},\hat{x},\hat{y},\hat{z})$. Initi
 
 The algorithm follows the following steps.
 
+\begin{enumerate}
+    \item\textit{Euclidian residuals,gap,and stopping criteria}.Compute\\
+    \begin{equation}
+    	\begin{aligned}
+    		\begin{bmatrix}
+        		r_x\\
+        		r_y\\
+        		r_z
+    		\end{bmatrix}
+    		=
+    		\begin{bmatrix}
+        		0\\
+        		0\\
+        		\hat s
+    		\end{bmatrix}
+    		+
+    		\begin{bmatrix}
+        		P & A^\mathsf{T} & G^\mathsf{T}\\
+        		A & 0 & 0\\
+        		G & 0 & 0
+    		\end{bmatrix}
+    		\begin{bmatrix}
+        		\hat x\\
+        		\hat y\\
+        		\hat z
+    		\end{bmatrix}
+    		\begin{bmatrix}
+        		c\\
+        		-b\\
+        		-h
+    		\end{bmatrix}
+    	\end{aligned}
+    	\label{eqn:cvxopt_algorithm_1}
+    \end{equation}
+
+    and\\
+    \begin{equation*}
+    	\begin{aligned}
+    		\hat{\mu} = \frac{\hat{s}^\mathsf{T}\hat{z}}{m}=\frac{\lambda^\mathsf{T}}{m}
+    	\end{aligned}
+    \end{equation*}
+
+    Terminate if $(s,x,y,z)=(\hat s,\hat x,\hat y,\hat z)$ satiesfies (within some threshold value) the optimality conditions
+    \begin{equation*}
+    	\begin{aligned}
+    		\begin{bmatrix}
+    			0\\
+    			0\\
+    			s\\
+    		\end{bmatrix}
+    		=
+    		\begin{bmatrix}
+        		P & A^\mathsf{T} & G^\mathsf{T}\\
+        		A & 0 & 0\\
+        		G & 0 & 0\\
+    		\end{bmatrix}
+    		\begin{bmatrix}
+    			x\\
+    			y\\
+    			z\\
+    		\end{bmatrix}
+    		+
+    		\begin{bmatrix}
+    			c\\
+    			b\\
+    			h
+    		\end{bmatrix}
+    		,
+    		& & (s,z) \succeq0, & &  z^\mathsf{T}s=0.
+    	\end{aligned}	
+    \end{equation*}
+    \item \textit{Affine Direction.} Solve the linear equations:\\
+    \begin{equation}
+    	\begin{aligned}
+			\begin{bmatrix}
+    			0\\
+    			0\\
+    			\Delta s_a\\
+    		\end{bmatrix}
+    		+
+    		\begin{bmatrix}
+        		P & A^\mathsf{T} & G^\mathsf{T}\\
+        		A & 0 & 0\\
+        		G & 0 & 0\\
+    		\end{bmatrix}
+    		\begin{bmatrix}
+    			\Delta x_a\\
+    			\Delta y_a\\
+    			\delta z_a\\
+    		\end{bmatrix}
+    		=-
+    		\begin{bmatrix}
+    			r_x\\
+    			r_y\\
+    			r_z\\
+    		\end{bmatrix}
+    		\\
+    		\lambda\circ(W\Delta {z_a} +W^{-\mathsf{T}}\Delta s_a ) = -\lambda \circ \lambda.\\
+    	\end{aligned}
+    	\label{eqn:cvxopt_algorithm_2}
+    \end{equation}
+    
+    
+    \item \textit{Step size and centering parameter.} Cpmpute\\
+    	\begin{equation*}
+    		\begin{aligned}
+    			\alpha &= \textrm{sup} \lbrace \alpha \in[0,1] \mid (\hat{s},\hat{z})+\alpha(\Delta s_a,\Delta z_a)\succeq 0\rbrace \\
+    			&= \textrm{sup} \lbrace \alpha \in[0,1]  \mid (\lambda,\lambda)+\alpha ( W^{-T} \Delta s_a, W\Delta z_a)\succeq 0 \rbrace \\
+    			\rho &= \frac{(\hat{s}+\alpha \Delta s_a)^T (\hat{z}+\alpha \Delta z_a)^T} {\hat{s}^T\hat{z}}\\
+    				&= 1-\alpha+\alpha^2\frac{(W^{-T} \Delta s_a)(W\Delta z_a)}{\lambda^{T}\lambda} \\
+    			\sigma &= \max{\lbrace 0,\min{\lbrace 1,\rho \rbrace} \rbrace }^3\\
+    		\end{aligned}
+    	\end{equation*}
+    
+    \item \textit{Combined direction}. Solve the linear equation\\
+    	\begin{equation}
+    		\begin{aligned}
+    			\begin{bmatrix}
+    				0\\
+    				0\\
+    				\Delta s_a\\
+    			\end{bmatrix}
+    			+
+    			\begin{bmatrix}
+        			P & A^\mathsf{T} & G^\mathsf{T}\\
+        			A & 0 & 0\\
+        			G & 0 & 0\\
+    			\end{bmatrix}
+    			\begin{bmatrix}
+    				\Delta x_a\\
+    				\Delta y_a\\
+    				\delta z_a\\
+    			\end{bmatrix}
+    			=-(1-\eta)
+    			\begin{bmatrix}
+    				r_x\\
+    				r_y\\
+    				r_z\\
+    			\end{bmatrix}\\
+    			\lambda\circ(W\Delta {z_a} +W^{-\mathsf{T}}\Delta s_a ) = -\lambda \circ \lambda - \gamma(W^\mathsf{-T}\Delta s_a )\circ(W\Delta z_a)+\sigma\hat\mu\textbf{e}\\
+    		\end{aligned}
+    		\label{eqn:cvxopt_algorithm_3}
+    	\end{equation}
+    	Common choice for $\eta$ are $\eta=0$ and $\eta=\sigma$. The parameter $\eta$ is 1 or 0, depending on whether or not a Mehrota correction is used. The default value is $\gamma=1$
+    \item \textit{Update iterators and scalling matrices},
+    	\begin{equation*}
+    		\begin{aligned}
+    			(\hat s,\hat x,\hat y,\hat z):=(\hat s,\hat x,\hat y,\hat z)+\alpha(\Delta s,\Delta x,\Delta y,\Delta z)
+    		\end{aligned}
+    	\end{equation*}
+    Where
+    \begin{equation*}
+    	\alpha = \textrm{sup} \left\{ {\alpha} {\in[0,1] } | (\lambda,\lambda)+\frac{\alpha}{0.99} ( W^{-\mathsf{T}} \Delta s_a, W\Delta z_a)\succeq 0\right\}\\
+    \end{equation*}
+    Compute the scalling matrix $W$ for $\hat s$,$\hat z$ and the second variable $\lambda :=W^\mathsf{-T}\hat s = W\hat z $  
+\end{enumerate}
 
 
 
