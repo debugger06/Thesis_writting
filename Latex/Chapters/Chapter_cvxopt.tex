@@ -9,12 +9,12 @@
 %----------------------------------------------------------------------------------------
 In this chapter we will introduce you with CVXOPT library. This library is has implemented a lot of important methods which can be used to solve different optimization problems. In the first a general description about this library has been given, then short a description about its modules. At the end algorithm behind the CVXOPT quadratic cone solver has been described.
   
-\section{A first view into CVXOPT library}
+\section{A First View into CVXOPT Library}
 
 CVXOPT is an opensource  library implemented using Python and C for convex optimization. This library can be installed as python package and can be used with interactive Python interpreter, integrate into software as Python extension module, or on the command line by executing python script. The goal of CVXOPT is to make software development straightforward where convex optimization is required by providing package using the power of python as Python's extensive standard library.
 
 
-\section{CVXOPT module structure}
+\section{CVXOPT Module Structure}
 CVXOPT extends the default python matrix objects into \pyobject{matrix} for dense matrices and \pyobject{spmatrix} for sparse matrices. According to the CVXOPT manual, CVXOPT is organised into following different module:
 
 \subsubsection*{\pyobject{cvxopt.blas}}
@@ -64,24 +64,26 @@ The linear inequality is a generalized inequality with respect to proper convex 
 \subsection{Quadratic Cone Programs}
 CVXOPT Quadratic cone program routine solves a pair of primal and dual quadratic cone programs:
 
-\begin{equation*}
+\begin{equation}
 \begin{aligned}
 & \text{minimize}
 & & \frac{1}{2}x^{T}Px+q^{T}x \\
 & \text{subject to} & &  Gx + s = h\\
-& & &  Ax = b
+& & &  Ax = b\\
 & & &  s\geqslant 0\\
 \end{aligned}
-\end{equation*}
+\label{eqn:CVXOPT_qp_1}
+\end{equation}
 with P positive semidefinite. And corresponding dual problem is
-\begin{equation*}
+\begin{equation}
 	\begin{aligned}
 		& \text{maximize}
 & & -(\frac{1}{2})(q+G^Tz+A^Ty)^{T}P^{\dagger}(q+G^Tz+A^Ty)-h^Tz-b^Ty\\
 & \text{subject to} & &  q+G^Tz+A^Ty \in \text{ range}(P)\\
 & & &  s\geqslant 0\\
 	\end{aligned}
-\end{equation*}
+	\label{eqn:CVXOPT_qp_2}
+\end{equation}
 
 x is the primal variable, s is the slack variable. $y$ and $z$ are dual variables. The inequalities are interpreted as $s\in C$,$z\in C$, were $C$ is a cone defined as a cartesian product of a nonnegative orthant, a number of second-order cones, and a number f positive semidefinite cones:
 \begin{equation*}
@@ -108,9 +110,201 @@ cvxopt.solvers.coneqp(P,q[,G,h[,dims[,A,b[,initvals[,kktsolver]]]]])
 
 \pyobject{P} is a square dense or sparse real matrix, \pyobject{q} is a single-column dense real matrix. \pyobject{h} and \pyobject{b} are real single-column dense matrices. \pyobject{G} and \pyobject{A} are real dense or sparse matrices. The default value of \pyobject{G}, \pyobject{h},\pyobject{A} and \pyobject{b} are metrices with zero rows, meaning that there are no inequalities or equality constraints. It is possible to provide custom solver to solve linear equation (KKT equations). \pyobject{coneqp} returns a dictionary that which contains the result and accuracy of the solution.
 
-\subsection*{CVXOPT quadratic cone solver algorithm}
+\subsection{CVXOPT quadratic cone solver algorithm}
 
-The algorithm implemented in the \pyobject{coneqp} solver is primal-dual path-following method based on Nesterov-Todd scaling. 
+The algorithm implemented in the \pyobject{coneqp} solver is primal-dual path-following method based on Nesterov-Todd scaling.  \pyobject{coneqp} solver is built using the following assumptions:
+
+\subsubsection*{Rank assumptions}
+It is assumed that,
+\begin{equation*}
+	\begin{aligned}
+		\textbf{rank}(A)=p, & & \textbf{rank}(\begin{bmatrix}
+			P & A^T & G^T & 
+		\end{bmatrix} )=n
+	\end{aligned}
+\end{equation*}
+where $p$ is the row dimension and $n$ is the dimension of $x$. that means the matrix:
+\begin{equation*}
+	\begin{aligned}
+		\begin{bmatrix}
+			P & A^T & G^T\\
+			A & 0 & 0\\
+			G & 0 & -Q
+		\end{bmatrix}
+	\end{aligned}
+\end{equation*} 
+is nonsingular for any positive definite $Q$.
+
+If $\textbf{rank}(A)<p$ the  either the equality constraints in the primal problem are inconsistent or some of the equalities are redundant. If $\textbf{rank}(\begin{bmatrix}P & A^T & G^T & \end{bmatrix} )<n$, then either the eqaulity constraints in the dual problem are inconsistent or some are redundant and the number of primal vriables can be reduced.
+
+The CVXOPT solver can not identify which rank assumptions does not hold, it only rise an exception if the rank conditions are not satisfied.
+
+\subsubsection*{Logarithmic berrier function}
+CVXOPT uses the following barrier function for $C$:
+\begin{equation*}
+	\begin{aligned}
+		\phi(u)=\sum_{k=1}^{K}\phi_k(u_k), & \phi_k(u)=
+		\left\{
+                \begin{array}{ll}
+                  -\sum_{j=1}^{p} log u_j & C_k=R_{\+}^p \\
+                  -(1/2)log(u_0^2-u_1^Tu_1) & C_k=\mathcal{Q}_p \\
+                  -log{ det } mat(u) & C_k = \mathcal{S}_p
+                \end{array}
+              \right.
+	\end{aligned}
+\end{equation*}
+where $\phi(tu) = \phi(u) - m\text{log}t$ for $t>0$ where
+\begin{equation*}
+	\begin{aligned}
+		m = m_1+...+m_k, & m_k=
+		\left\{
+                \begin{array}{ll}
+                  p & C_k=R_{\+}^p \\
+                  1 & C_k=\mathcal{Q}_p \\
+                  p & C_k = \mathcal{S}_p
+                \end{array}
+              \right.
+	\end{aligned}
+\end{equation*}
+$m$ is refers to the degree of the cone $C$.
+
+\subsubsection*{Central path}
+
+In CVXOPT the central path for \ref{eqn:CVXOPT_qp_1} is defined by a family of points $(s,x,y,z)$ that saistfy
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			0\\
+			0\\
+			s
+		\end{bmatrix}
+		+
+		\begin{bmatrix}
+			P & A^T & G^T\\
+			A & 0 & 0\\
+			G & 0 & -Q
+		\end{bmatrix}
+		+\begin{bmatrix}
+			x\\
+			y\\
+			z\\
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			-c\\
+			b\\
+			h
+		\end{bmatrix}
+		,
+		& & (s,z)\succ 0, & & z=-\mu g(s)
+	\end{aligned}
+	\label{eqn:cvxopt_central_path_1}
+\end{equation}
+for some $\mu \> 0$. CVXOPT Primal-dual algorithms are based on an equivalent definition of central where primal and dual variables appear symmetrically. The symmetric parametrization is achieved by writing $z=-\mu g(s)$ as $s \circ z=\mu \textbf{e}$ and $\textbf{e}$ is the vector $\textbf{e}=(\textbf{e}_1,...,\textbf{e}_k)$,
+\begin{equation*}
+	\begin{aligned}
+		\textbf{e}_k = 
+		\left\{
+                \begin{array}{ll}
+                  (1,1,...,1) & C_k=R_{\+}^p \\
+                  (1,0,...,0) & C_k=\mathcal{Q}_p \\
+                  \textbf{vec}(I_p) & C_k = \mathcal{S}_p
+                \end{array}
+              \right.
+	\end{aligned}
+\end{equation*}
+
+Central path described finally as:
+
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			0\\
+			0\\
+			s
+		\end{bmatrix}
+		+
+		\begin{bmatrix}
+			P & A^T & G^T\\
+			A & 0 & 0\\
+			G & 0 & -Q
+		\end{bmatrix}
+		+\begin{bmatrix}
+			x\\
+			y\\
+			z\\
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			-c\\
+			b\\
+			h
+		\end{bmatrix}
+		,
+		& & (s,z)\succ 0, & & s\circ z = \mu \textbf{e}
+	\end{aligned}
+	\label{eqn:cvxopt_central_path_2}
+\end{equation}
+
+\subsubsection*{Nesterov-Todd Scaling}
+
+A primal-dual scaling $W$ is a linear transformation
+\begin{equation*}
+\begin{aligned}
+	\bar{s} = W^-Ts, & & \bar{z}=Wz
+\end{aligned}
+\end{equation*}
+that leaves the cone and the central path invariant, $i.e.$,
+\begin{equation*}
+\begin{aligned}
+s\succ 0 \Leftrightarrow \bar{s}\succ,  & & z\succ \Leftrightarrow \bar{z}\succ 0, & & s\circ z=\mu \textbf{e} \Leftrightarrow \bar{s}\circ \bar{z} = \mu \textbf{e}
+\end{aligned}
+\end{equation*}
+
+When $W$ is a scaling, central path equations has been written equvalently as the following form
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			0\\
+			0\\
+			s
+		\end{bmatrix}
+		+
+		\begin{bmatrix}
+			P & A^T & G^T\\
+			A & 0 & 0\\
+			G & 0 & -Q
+		\end{bmatrix}
+		+\begin{bmatrix}
+			x\\
+			y\\
+			z\\
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			-c\\
+			b\\
+			h
+		\end{bmatrix}
+		,
+		& & (s,z)\succ 0, & & (Wz)\circ (W^{-T}s) = \mu \textbf{e}
+	\end{aligned}
+	\label{eqn:cvxopt_central_path_3}
+\end{equation}
+
+\subsubsection*{Path-following Algorithm for Cone QPs}
+
+the algorithm implemented in CVXOPT $coneqp$ is based on linearizing the central path equation \ref{eqn:cvxopt_central_path_3}. which is achieved from equation \ref{eqn:cvxopt_central_path_2} after applying a scaling with a matrix $W$.
+
+CVXOPT defines the current iterate by $(\hat{s},\hat{x},\hat{y},\hat{z})$. Initial iterate value is $((\hat{s},\hat{x},\hat{y},\hat{z})=(s_0,x_0,y_0,z_0))$ where $s_0\succ 0,z_0 \succ 0$. Neterov-Todd scalling $W$ is calculated at $\hat{s},\hat{z}$ and the scaled variable $\lambda := W^{-T}\hat{s} = W\hat{z}$
+
+The algorithm follows the following steps.
+
+
+
+
+
+
 
 
 

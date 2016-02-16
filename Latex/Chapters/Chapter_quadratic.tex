@@ -37,7 +37,7 @@ Some classification of quadratic program's:
 \end{itemize}
 
 \section*{Important Definitions}
-\subsection*{Logarithmic barrier}
+\subsection*{Logarithmic Barrier}
 Consider inequalities $Ax \leqslant b$ with $A$ of size $m\times n$ and with rows $a_i^T$. Define
 \begin{equation*}
 P=\lbrace x \mid Ax \leqslant b \rbrace \text{ and } P^0=\lbrace x \mid Ax < b \rbrace
@@ -136,7 +136,7 @@ F(x_\tau,\lambda_\tau, s_\tau)=
 the conditions approximate more and more colsely as $\tau$ goes to zero. If $\mathcal{C}$ converges to anything as $\tau \downarrow 0$, it must converge to a primal-dual solution of the linear program.
 
 
-\subsection*{Active set}
+\subsection*{Active-set}
 The Active set $\mathbb{A}(x)$ at any feasible $x$ consists of the equality constraint indices from $\varepsilon$ together with the indices of the inequality constraints $i$ for which $c_i(x)=0$; that is,
 \begin{equation*}
 	\begin{aligned}
@@ -303,7 +303,7 @@ Based on \ref{eqn:SIF_1}, the KKT system \ref{eqn:Properties_of_EC_QP_2} is solv
 \end{equation}
 
 This approach of factoring  the full $(n+m)\times (n+m)$ KKt matrix is quite effective  on many problems. It can be expensive when the permutation matrix $P$ are not able to maintain sparsity in the $L$ factor.
-\subsection*{Range-space approach}
+\subsection*{Range-space Approach}
 The range-space approach is useful when $G\in \mathbb{R}^{n\times n}$ is symmetric positive definite. We can multiply the first part of the equation \ref{eqn:Properties_of_EC_QP_2}  by $AG^-1$ and then subtract the second part to obtain a linear system in the vector $\lambda^*$ alone:
 
 \begin{equation}
@@ -328,7 +328,7 @@ This approach requires us to perform operation with $G^{-1}$, as well as to comp
 	\item the number $m$ of equality constraints is small.
 \end{itemize}
 
-\subsection*{Null-space approach}
+\subsection*{Null-space Approach}
 The null-space approach does not require regularity of $G$ and thus has a wider range of applicability than the range-space approach.
 
 We assume that $A\in \mathbb{R}^{m\times n}$ has full row rank m and that $Z^TGZ$ is positive definite, where $Z\in \mathbb{R}^{n\times (n-m)}$ is the matrix whose columns span Ker $A$ which can be computed by QR factorization.
@@ -379,13 +379,13 @@ Finally, the Lagrange multiplier turns out to be the solution of the linear syst
 \end{equation} 
 
 
-\section{Iterative solution of the KKT system}
+\section{Iterative solution of the KKT System}
 Direct solution of the KKT system can be sometimes expensive, the possible alternative is iterative method to solve KKT system. one of the famous iterative method is Conjugate Gradient method. Although it is not recommended for solving the full system using the CG mathod because it can be unstable on systems that are not positive definite. An iterative solver can be applied either to the entire KKT system or, as in the null-space and range-space approach, use the special structure of the KKT matrix.
 
 \section{Inequality-Constrained Problems}
 Inequality-constrained quadratic programs are QPs which consists of inequality constraints and may or may not consist equality constraints. Several classes of algorithms for solving convex quadratic programs containing inequality and equality constraints are available. Active-set method and Interior-point are most famous for their accuracy and capability to solve large problems.
 
-\subsection{Properties of Inequality-constrained problems}
+\subsection{Properties of Inequality-constrained Problems}
 \subsubsection*{Optimality condition for inequality-constrained problems}
 Lagrangian for the problem \ref{eqn:quadratic_programming} is:
 \begin{equation}
@@ -575,7 +575,7 @@ Whenever $p_k$ obtained from \ref{eqn:Active_set_1} is nonzero and satisfies sec
 
 So it can be concluded that, When G is positive definite-the second order sufficient conditions are satisfied for all feasible subproblems of the form \ref{eqn:Active_set_1}. Hence, it follows from the result that a strict decrease in $q(.)$ can be obtained whenever $p_k \neq 0$.
 
-\subsection*{Specification of the Active-set method for convex QP}
+\subsection*{Specification of the Active-set Method for Convex QP}
 The whole Active-set algorithm can be specified as following:
 \begin{algorithm}[h]
   \caption{Active-set method for convex QP}\label{euclid}

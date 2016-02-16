@@ -23,7 +23,7 @@ A matrix $A\in \mathbb{R}^{m\times m}$ is symmetric positive definite (SPD) if a
 The lower triangular matrix $L$ is known as the Cholesky factor and $LL^T$ is known as the Cholesky factorization of $A$. It is unique if the diagonal elements of $L$ are restricted to be positive.
 
 The converse holds trivially: if $A$ can be written as $LL^*$ for some invertible $L$, lower triangular or otherwise, then $A$ is Hermitian and positive definite.
-\section{LDL decomposition}
+\section{LDL Decomposition}
 Although the focus of this chapter is Cholesky factorization, it is worth to make an understanding about a closely related variant of the Cholesky factorization, the LDL decomposition.
 
 It is represented as,
@@ -44,17 +44,17 @@ When LDL is efficiently implemented, it takes the same space and complexity to b
 The Cholesky decomposition is mostly used when numerical solution of linear equations $Ax = b$ is required. When $A$ is symmetric and positive definite, it is possible to solve $Ax = b$ by first computing the Cholesky decomposition $A = LL^*$, then solving $Ly = b$ for $y$ by forward substitution, and finally solving $L*x = y$ for $x$ by back substitution.
 
 The Cholesky decomposition helps to achieve superior efficiency and numerical stability. Compared to the $LU$ decomposition, this can perform almost two times efficiently.
-\subsubsection*{Linear least squares}
+\subsubsection*{Linear Least Squares}
 Systems of the form $Ax = b$ with $A$ symmetric and positive definite arise quite often in applications. For instance, the normal equations in linear least squares problems are of this form. It may also happen that matrix $A$ comes from an energy functional which must be positive from physical considerations; this happens frequently in the numerical solution of partial differential equations.
-\subsubsection*{Non-linear optimization}
+\subsubsection*{Non-linear Optimization}
 Non-linear multi-variate functions may be minimized over their parameters using variants of Newton's method called quasi-Newton methods. At each iteration, the search takes a step s defined by solving $Hs = -g$ for $s$, where $s$ is the step, $g$ is the gradient vector of the function's partial first derivatives with respect to the parameters, and $H$ is an approximation to the Hessian matrix of partial second derivatives formed by repeated rank 1 updates at each iteration. Two well-known update formulae are called Davidon–Fletcher–Powell (DFP) and Broyden–Fletcher–Goldfarb–Shanno (BFGS). Loss of the positive-definite condition through round-off error is avoided if rather than updating an approximation to the inverse of the Hessian, one updates the Cholesky decomposition of an approximation of the Hessian matrix itself.
 
-\subsubsection*{Monte Carlo simulation}
+\subsubsection*{Monte Carlo Simulation}
 The Cholesky decomposition is commonly used in the Monte Carlo method for simulating systems with multiple correlated variables: The correlation matrix is decomposed, to give the lower-triangular $L$. Applying this to a vector of uncorrelated samples, $u$, produces a sample vector $Lu$ with the covariance properties of the system being modeled.
 
 For a simplified example that shows the economy one gets from Cholesky's decomposition, say one needs to generate two correlated normal variables $x_1$ and $x_2$. All one needs to do is to generate two uncorrelated Gaussian random variables $z_1$ and $z_2$. We set $x_1=z_1$ and $x_2 = \rho z_1 + \sqrt{1-\rho ^2 z_2}$.
 
-\subsubsection*{Matrix inversion}
+\subsubsection*{Matrix Inversion}
 The explicit inverse of a Hermitian matrix can be computed via Cholesky decomposition, in a manner similar to solving linear systems, using $\textstyle{n^3}$ operations ($\textstyle\frac{1}{2}n^3$ multiplications). The entire inversion can even be efficiently performed in-place.
 
 A non-Hermitian matrix $B$ can also be inverted using the following identity, where $BB^*$ will always be Hermitian:
@@ -62,7 +62,7 @@ A non-Hermitian matrix $B$ can also be inverted using the following identity, wh
 \mathbf{B}^{-1} = \mathbf{B}^{*} \mathbf{(B B ^ {*})}^{-1}.	
 \end{equation*}
 
-\section{The Cholesky algorithm}
+\section{The Cholesky Algorithm}
 Most usual algorithm for Cholesky factorization $chol(A)$ can be derived as: (\textit{Greek lowercase letters refers to scalars, lower case letter referes to vector and uppercase letters referes to matrices}). Partition
 \begin{equation*}
 \begin{aligned}
@@ -166,12 +166,12 @@ So blocked variant algorithm can be described as:
   \end{algorithmic}
 \end{algorithm}
 
-\subsection*{Updating the decomposition}
+\subsection*{Updating the Decomposition}
 More often the task of updating Cholesky decomposition arises. More descriptively, at some point Cholesky decomposition $A=LL^*$ of some matrix $A$ has been computed, then a change on matrix $A$ has been made to produce matrix $\hat{A}$, and now it is required to compute the Cholesky decomposition of the new matrix: $\hat{A}=\hat{L}\hat{L}^*$. Now question arises if it is possible to reuse the Cholesky decomposition of $A$ which already has been computed to compute the Cholesky decomposition of $\hat{A}$
-\subsubsection*{Rank-one update}
+\subsubsection*{Rank-one Update}
 The situation where the updated matrix $\hat{A}$ is produced from matrix $A$ by $\hat{A}=A+xx^*$ is refers to rank-one update. 
 \begin{algorithm}[h]
-  \caption{Rank-one update}\label{cholesky_rank_update}
+  \caption{Rank-one Update}\label{cholesky_rank_update}
   \begin{algorithmic}[1]
     \Procedure{Choleskyrankupdate}{$L,x$}
      \State $n\gets length(x)$
