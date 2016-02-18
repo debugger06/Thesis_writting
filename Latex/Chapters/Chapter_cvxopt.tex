@@ -294,7 +294,7 @@ When $W$ is a scaling, central path equations has been written equvalently as th
 
 \subsubsection*{Path-following Algorithm for Cone QPs}
 
-the algorithm implemented in CVXOPT $coneqp$ is based on linearizing the central path equation \ref{eqn:cvxopt_central_path_3}. which is achieved from equation \ref{eqn:cvxopt_central_path_2} after applying a scaling with a matrix $W$.
+The algorithm implemented in CVXOPT $coneqp$ is based on linearizing the central path equation \ref{eqn:cvxopt_central_path_3}. which is achieved from equation \ref{eqn:cvxopt_central_path_2} after applying a scaling with a matrix $W$.
 
 CVXOPT defines the current iterate by $(\hat{s},\hat{x},\hat{y},\hat{z})$. Initial iterate value is $((\hat{s},\hat{x},\hat{y},\hat{z})=(s_0,x_0,y_0,z_0))$ where $s_0\succ 0,z_0 \succ 0$. Neterov-Todd scalling $W$ is calculated at $\hat{s},\hat{z}$ and the scaled variable $\lambda := W^{-T}\hat{s} = W\hat{z}$
 
@@ -457,11 +457,78 @@ The algorithm follows the following steps.
     Compute the scalling matrix $W$ for $\hat s$,$\hat z$ and the second variable $\lambda :=W^\mathsf{-T}\hat s = W\hat z $  
 \end{enumerate}
 
+\subsubsection*{Initialization of the Algorithm}
+If primal and dual starting points $\hat{x},\hat{s},\hat{y},\hat{z}$ are not specified during the calling the method,  they are initialized as by the algorithm by the following way.
 
+\pyobject{coneqp} algorithm solves the linear equation:
 
+\begin{equation}
+	\begin{aligned}
+		\begin{bmatrix}
+			P & A^T & G^T\\
+			A & 0 & 0\\
+			G & 0 & -I
+		\end{bmatrix}
+		\begin{bmatrix}
+			x\\
+			y\\
+			z
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			-c\\
+			b\\
+			h
+		\end{bmatrix}
+	\end{aligned}
+	\label{eqn:cvxopt_initialization_1}
+\end{equation}
+and takes $\hat{x} = x, \hat{y}=y$. The equation \ref{eqn:cvxopt_initialization_1} gives the optimality conditions for the pair of primal and dual problems
+\begin{equation*}
+\begin{aligned}
+& \text{minimize}
+& & \frac{1}{2}x^{T}Px+c^{T}x\parallel s\parallel_2^2 \\
+& \text{subject to} & &  Gx + s = h\\
+& & &  Ax = b\\
+\end{aligned}
+\label{eqn:CVXOPT_qp_1}
+\end{equation*}
+and
+\begin{equation*}
+	\begin{aligned}
+		& \text{maximize}
+& & -(\frac{1}{2})w^TPw-h^Tz-b^Ty-(1/2)\parallel z \parallel_2^2 \\
+& \text{subject to} & &  Pw+G^Tz+A^Ty+c=0
+	\end{aligned}
+	\label{eqn:CVXOPT_qp_2}
+\end{equation*}
 
+The initial value of $\hat{s}$ is computed from the residuals $h-Gx=-z$ as
+\begin{equation*}
+	\begin{aligned}
+		\hat{s} = 
+		\left\{
+                \begin{array}{ll}
+                  -z & \alpha_p <0 \\
+                  -z+(1+\alpha_p)\textbf{e} & \text{otherwise}
+                \end{array}
+              \right.
+	\end{aligned}
+\end{equation*}
+where $\alpha_p=\text{inf}\lbrace \alpha\mid-z+\alpha\textbf{e}\succeq 0 \rbrace$. The initial value of $z$ is:
 
-
+\begin{equation*}
+	\begin{aligned}
+		\hat{s} = 
+		\left\{
+                \begin{array}{ll}
+                  z & \alpha_d <0 \\
+                  -z+(1+\alpha_d)\textbf{e} & \text{otherwise}
+                \end{array}
+              \right.
+	\end{aligned}
+\end{equation*}
+where $\alpha_d=\text{inf}\lbrace \alpha\mid z+\alpha\textbf{e}\succeq 0 \rbrace$.
 
 
 
