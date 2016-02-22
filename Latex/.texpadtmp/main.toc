@@ -4,45 +4,41 @@
 \contentsline {chapter}{Declaration of Authorship}{iii}{Doc-Start}
 \contentsline {chapter}{Abstract}{vii}{Doc-Start}
 \contentsline {chapter}{Acknowledgements}{ix}{Doc-Start}
-\contentsline {chapter}{\numberline {1}Chapter Title Here}{1}{chapter.10}
-\contentsline {section}{\numberline {1.1}Main Section 1}{1}{section.11}
-\contentsline {subsection}{\numberline {1.1.1}Subsection 1}{1}{subsection.12}
-\contentsline {subsection}{\numberline {1.1.2}Subsection 2}{1}{subsection.13}
-\contentsline {section}{\numberline {1.2}Main Section 2}{1}{section.14}
-\contentsline {chapter}{\numberline {2}The Birkhoff Polytope}{3}{chapter.15}
-\contentsline {section}{\numberline {2.1}Hypermatrix}{3}{section.16}
-\contentsline {section}{\numberline {2.2}Doubly-Stochastic Matrix}{3}{section.18}
-\contentsline {section}{\numberline {2.3}Permutation Matrix}{4}{section.19}
-\contentsline {section}{\numberline {2.4}Polytopes}{4}{section.20}
-\contentsline {subsection}{\numberline {2.4.1}Elements of polytope}{4}{subsection.21}
-\contentsline {subsection}{\numberline {2.4.2}Properties of Polytope}{5}{subsection.22}
-\contentsline {section}{\numberline {2.5}Birkhoff Polytope}{5}{section.26}
-\contentsline {section}{\numberline {2.6}Properties of $B_n$}{6}{section.28}
-\contentsline {subsection}{\numberline {2.6.1}Vetices}{6}{subsection.29}
-\contentsline {subsection}{\numberline {2.6.2}Edges}{6}{subsection.30}
-\contentsline {subsection}{\numberline {2.6.3}Facets}{6}{subsection.31}
-\contentsline {subsection}{\numberline {2.6.4}Symmetries}{6}{subsection.32}
-\contentsline {subsection}{\numberline {2.6.5}Volume}{6}{subsection.33}
-\contentsline {chapter}{\numberline {3}Quadratic Programming}{7}{chapter.35}
-\contentsline {section}{\numberline {3.1}Definition of QP}{7}{section.36}
-\contentsline {section}{\numberline {3.2}Classification of QP's}{7}{section.38}
-\contentsline {section}{\numberline {3.3}Equality-Constrained Quadratic Programs}{9}{section.47}
-\contentsline {section}{\numberline {3.4}Direct Solution of the KKT System}{11}{section.60}
-\contentsline {section}{\numberline {3.5}Iterative solution of the KKT System}{13}{section.73}
-\contentsline {section}{\numberline {3.6}Inequality-Constrained Problems}{13}{section.74}
-\contentsline {subsection}{\numberline {3.6.1}Properties of Inequality-constrained Problems}{13}{subsection.75}
-\contentsline {section}{\numberline {3.7}Active-set Methods for Convex QPs}{15}{section.84}
-\contentsline {section}{\numberline {3.8}Interior-Point Method}{18}{section.95}
-\contentsline {chapter}{\numberline {4}Cholesky Factorization}{21}{chapter.102}
-\contentsline {section}{\numberline {4.1}Definition and Existance}{21}{section.103}
-\contentsline {section}{\numberline {4.2}LDL Decomposition}{21}{section.106}
-\contentsline {section}{\numberline {4.3}Application of Choleskey Factorization}{22}{section.107}
-\contentsline {section}{\numberline {4.4}The Cholesky Algorithm}{23}{section.112}
-\contentsline {section}{\numberline {4.5}Sparse Cholesky Factorization Algorithm}{25}{section.120}
-\contentsline {chapter}{\numberline {5}CVXOPT}{27}{chapter.121}
-\contentsline {section}{\numberline {5.1}A First View into CVXOPT Library}{27}{section.122}
-\contentsline {section}{\numberline {5.2}CVXOPT Module Structure}{27}{section.123}
-\contentsline {section}{\numberline {5.3}CVXOPT Cone Programming Interface}{28}{section.133}
-\contentsline {subsection}{\numberline {5.3.1}Quadratic Cone Programs}{29}{subsection.134}
-\contentsline {subsection}{\numberline {5.3.2}CVXOPT quadratic cone solver algorithm}{30}{subsection.139}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{35}{appendix.158}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.10}
+\contentsline {chapter}{\numberline {2}The Birkhoff Polytope}{3}{chapter.11}
+\contentsline {section}{\numberline {2.1}Hypermatrix}{3}{section.12}
+\contentsline {section}{\numberline {2.2}Doubly-Stochastic Matrix}{3}{section.14}
+\contentsline {section}{\numberline {2.3}Permutation Matrix}{4}{section.15}
+\contentsline {section}{\numberline {2.4}Polytopes}{4}{section.16}
+\contentsline {subsection}{\numberline {2.4.1}Elements of polytope}{4}{subsection.17}
+\contentsline {subsection}{\numberline {2.4.2}Properties of Polytope}{5}{subsection.18}
+\contentsline {section}{\numberline {2.5}Birkhoff Polytope}{5}{section.22}
+\contentsline {section}{\numberline {2.6}Properties of $B_n$}{6}{section.24}
+\contentsline {subsection}{\numberline {2.6.1}Vetices}{6}{subsection.25}
+\contentsline {subsection}{\numberline {2.6.2}Edges}{6}{subsection.26}
+\contentsline {subsection}{\numberline {2.6.3}Facets}{6}{subsection.27}
+\contentsline {subsection}{\numberline {2.6.4}Symmetries}{6}{subsection.28}
+\contentsline {subsection}{\numberline {2.6.5}Volume}{6}{subsection.29}
+\contentsline {chapter}{\numberline {3}Quadratic Programming}{7}{chapter.31}
+\contentsline {section}{\numberline {3.1}Definition of QP}{7}{section.32}
+\contentsline {section}{\numberline {3.2}Classification of QP's}{7}{section.34}
+\contentsline {section}{\numberline {3.3}Equality-Constrained Quadratic Programs}{9}{section.43}
+\contentsline {section}{\numberline {3.4}Direct Solution of the KKT System}{11}{section.56}
+\contentsline {section}{\numberline {3.5}Iterative solution of the KKT System}{13}{section.69}
+\contentsline {section}{\numberline {3.6}Inequality-Constrained Problems}{13}{section.70}
+\contentsline {subsection}{\numberline {3.6.1}Properties of Inequality-constrained Problems}{13}{subsection.71}
+\contentsline {section}{\numberline {3.7}Active-set Methods for Convex QPs}{15}{section.80}
+\contentsline {section}{\numberline {3.8}Interior-Point Method}{18}{section.91}
+\contentsline {chapter}{\numberline {4}Cholesky Factorization}{21}{chapter.98}
+\contentsline {section}{\numberline {4.1}Definition and Existance}{21}{section.99}
+\contentsline {section}{\numberline {4.2}LDL Decomposition}{21}{section.102}
+\contentsline {section}{\numberline {4.3}Application of Choleskey Factorization}{22}{section.103}
+\contentsline {section}{\numberline {4.4}The Cholesky Algorithm}{23}{section.108}
+\contentsline {section}{\numberline {4.5}Sparse Cholesky Factorization Algorithm}{25}{section.116}
+\contentsline {chapter}{\numberline {5}CVXOPT}{27}{chapter.117}
+\contentsline {section}{\numberline {5.1}A First View into CVXOPT Library}{27}{section.118}
+\contentsline {section}{\numberline {5.2}CVXOPT Module Structure}{27}{section.119}
+\contentsline {section}{\numberline {5.3}CVXOPT Cone Programming Interface}{28}{section.129}
+\contentsline {subsection}{\numberline {5.3.1}Quadratic Cone Programs}{29}{subsection.130}
+\contentsline {subsection}{\numberline {5.3.2}CVXOPT quadratic cone solver algorithm}{30}{subsection.135}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{35}{appendix.154}
