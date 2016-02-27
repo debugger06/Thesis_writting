@@ -72,7 +72,7 @@ More precisely $\hat{X}$ can be written as minimiser:
 \label{eqn:problem_statement}
 \end{equation}
 
-\section{Formulation of the Pronlem}
+\section{Formulation of the Problem}
 Given two polytopes $P$ and $Q$, defined by a total $k$ vertices in $d$ dimensional space. Find two points $p \in P$ anf $q \in Q$ with smalles euclidian distance. Wolfe addresed a special case where one polytope is defined by a single point. Murty and Fathi studied that polytope distance problem fits into the Quadratic Programming framework.\\
 The quadratic programming can be formulated mathematically as-\\
 
@@ -140,6 +140,52 @@ In-Equality constraints:\\
 \]
 
 Equality constraints:
+\[A=
+\begin{array}{c}
+    \begin{bmatrix}
+        1 & 1 & 1 & \cdots & 1 & 0 & 0 & \cdots & 0\\
+        0 & 1 & 1 & \cdots & 1 & 1 & 0 & \cdots & 0\\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \cdots & 0 & 0 & 0 & 1 & \cdots & 1\\
+        1 & 0 & \cdots & 0 & 1 & 0 & \cdots & \cdots  & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+        0 & \cdots & 0 & 1 & 0 & \cdots & 1 
+    \end{bmatrix}\\
+    (m+n)\times m
+\end{array}
+\]
+\[b=
+\begin{array}{c}
+    \begin{bmatrix}
+        1 \\
+        1 \\
+        \vdots\\
+        1 \\
+    \end{bmatrix}\\
+    2n \times 1
+\end{array}
+\]
+
+So, It is seen that, the projection problem can be converted into quadratic programming. There are several important points that needed to be considered to solve this problem
+\begin{enumerate}
+	\item projection is to a special polytope named birkhoffpolytope.
+	\item The similarity matrix contains considerable amount of zeros. So when sparsity property of a matrix has been considered, solution can be faster.
+	\item Similarity matrix derived from audio data is large.
+	\item The quadratic programming solver is required to be fast, so that the framework can be used for realtime segmentation.
+\end{enumerate}
+
+
+  Projection problems are application specific. It is rare to find similar problem and use the approach to solve another problem. Additionally several situation arises which are not common for general approach and required to handle manually. There are many advanced libraries which can solve quadratic program efficiently. For instance Matlab has efficient $qp$ solver. It has limitation of calculating projection of very large matrix and it does not consider sparse matrix case. That can not be accepted to solve this problem. CVXOPT is a convex optimization library implemented in Python programming language. CVXOPT $qpsolver$ is also efficient and is a good candidate to solve this problem. CVXOPT matrix class can handle very large matrix, but it takes considerably longer time to solve for large matrix. So it is time build own $qpsolver$ class on the top of CVXOPT Library.\\
+
+
+The thesis is organised in the following structure.
+\begin{itemize}
+	\item The goal of chapter \ref{chptr:birkhoff_polytope} describes about Polytope. It tries to identify properties of polytope and identify special type of polytope: Birkhoff polytope. In most part birkhoff polytope has been defined, it's properties are identified and described why it is interesting.
+	\item In chapter \ref{chptr:Quadratic Programming}, quadratic programming has been discussed. The goal of the chapter is to provide reader a  overview about QP, it's Classification,  properties. This chapter also describes some mathematical foundation that are directly related to solve QP, for instance KKT system, Central path, active-set. At the core of the chapter several solving method has been described. One of the method namely Interior Point method has been used to solve problem of this thesis.
+	\item Chapter focuses about Cholesky Factorization which is a used for solving system of linear equation which is a major step for $qpsolver$ to achieve fast execution. In the core of the of the chapter condition for cholesky factorization has been identified, then cholesky algorithm also been described. Later part a sparse cholesky factorization algorithm is illustrated.
+	\item Projection algorithm to birkhoff polytope is designed on the top of CVXOPT library. So chapter \ref{chptr:cvxopt}  aims to give viewer a general overview about the optimization library. This chapter focuses on the CVXOPT \pyobject{qpsolver} and their existing algorithm. 
+	\item Chapter 6 is identifies the approach and algorithm behind the custom $qpsolver$ that calculates projection to the . At the begin of the construction of the similarity matrix is described. After that process of custom QP has been explained. At the end of the chapter, performance of the  custom qpsolver is representated by comparing the result and runtime with CVXOPT qpsolver and Matlabd Quadtratic program library.
+\end{itemize}
 
 
 
